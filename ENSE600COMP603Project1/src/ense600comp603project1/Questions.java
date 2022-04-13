@@ -27,6 +27,14 @@ public class Questions {
         }
     }
     
+    public String getCorrectAnswer(){
+        return correctAnswer;
+    }
+    
+    public String getAnswer(int answerPosition){
+        return answers.get(answerPosition);
+    }
+    
     @Override
     public String toString(){
         
