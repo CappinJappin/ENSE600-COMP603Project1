@@ -21,8 +21,11 @@ import java.util.Random;
  * @author Keno0
  */
 /**
- * Todo: Ken: Player input Check inputs more questions questions show correct
- * answer players scoring
+ * Todo: Ken:
+ *  
+ * more questions 
+ * questions show correct answer 
+ * players scoring
  *
  */
 public class ENSE600COMP603Project1 {
@@ -35,17 +38,29 @@ public class ENSE600COMP603Project1 {
 
         System.out.println(questions.get(0));
 
-        char userInputAnswer = scanner.next().charAt(0);
-        
-        int ASCIIAnswers = (int)(Character.toUpperCase(userInputAnswer));
-        int answerPosition = ASCIIAnswers - (int)"A".charAt(0);
-        
-        if(questions.get(0).getAnswer(answerPosition) == questions.get(0).getCorrectAnswer()){
+        int ASCIIAnswers;
+
+        while (true) {
+            
+            System.out.println("Please input A, B, C, D");
+            char userInputAnswer = scanner.next().charAt(0);
+            
+            ASCIIAnswers = (int) (Character.toUpperCase(userInputAnswer));
+
+            if (ASCIIAnswers >= (int) "A".charAt(0) && ASCIIAnswers <= (int) "D".charAt(0)) {
+                break;
+            }else{
+                System.out.println("Invaild input.");
+            }
+        }
+
+        int answerPosition = ASCIIAnswers - (int) "A".charAt(0);
+
+        if (questions.get(0).getAnswer(answerPosition) == questions.get(0).getCorrectAnswer()) {
             System.out.println("Correct");
         } else {
             System.out.println("Incorrect");
         }
-        
     }
 
     public static List<Questions> readQuestions() {
