@@ -12,6 +12,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.lang.Math;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -22,31 +24,30 @@ public class ENSE600COMP603Project1 {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        System.out.println("hello world");
-        
-        ArrayList<String> questions = readQuestions();
+        List<Questions> questions = readQuestions();
         System.out.println(questions.get(0));
-        System.out.println("A: " + questions.get(1) + " " + "B: " + questions.get(2) + '\n' + "C: " + questions.get(3) + " " + "D: " + questions.get(4)
-        );
+        
+        
     }
 
-    public static ArrayList<String> readQuestions() {
+    public static List<Questions> readQuestions() {
 
-        ArrayList<String> list = new ArrayList<String>();
+        List<Questions> questionsList = new ArrayList<Questions>();
 
         try {
-            String line = Files.readAllLines(Paths.get("./resources/Questions.txt")).get((int) (Math.random() * (5 - 0 + 1) + 0));
+            List<String> questionsLine = Files.readAllLines(Paths.get("./resources/Questions.txt"));
 
-            String str[] = line.split("@");
-
-            for (int i = 0; i < 5; i++) {
-                list.add(str[i]);
+            for (int i = 0; i < questionsLine.size(); i++) {
+                questionsList.add(new Questions(questionsLine.get(i).split("@")));
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return list;
+        
+        Collections.shuffle(questionsList);
+        
+        return questionsList;
     }
 }
