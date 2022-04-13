@@ -22,6 +22,8 @@ public class ENSE600COMP603Project1 {
 
     public static void main(String[] args) throws FileNotFoundException {
 
+        System.out.println("hello world");
+        
         ArrayList<String> questions = readQuestions();
         System.out.println(questions.get(0));
         System.out.println("A: " + questions.get(1) + " " + "B: " + questions.get(2) + '\n' + "C: " + questions.get(3) + " " + "D: " + questions.get(4)
