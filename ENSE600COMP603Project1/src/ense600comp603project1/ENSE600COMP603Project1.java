@@ -20,13 +20,31 @@ import java.util.Random;
  *
  * @author Keno0
  */
+/**
+ * Todo: Ken: Player input Check inputs more questions questions show correct
+ * answer players scoring
+ *
+ */
 public class ENSE600COMP603Project1 {
 
     public static void main(String[] args) throws FileNotFoundException {
 
+        Scanner scanner = new Scanner(System.in);
+
         List<Questions> questions = readQuestions();
+
         System.out.println(questions.get(0));
+
+        char userInputAnswer = scanner.next().charAt(0);
         
+        int ASCIIAnswers = (int)(Character.toUpperCase(userInputAnswer));
+        int answerPosition = ASCIIAnswers - (int)"A".charAt(0);
+        
+        if(questions.get(0).getAnswer(answerPosition) == questions.get(0).getCorrectAnswer()){
+            System.out.println("Correct");
+        } else {
+            System.out.println("Incorrect");
+        }
         
     }
 
@@ -45,9 +63,9 @@ public class ENSE600COMP603Project1 {
         } catch (IOException ex) {
             Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         Collections.shuffle(questionsList);
-        
+
         return questionsList;
     }
 }
