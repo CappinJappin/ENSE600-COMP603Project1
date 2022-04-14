@@ -74,10 +74,10 @@ public class ENSE600COMP603Project1 {
                 int answerPosition = ASCIIAnswers - (int) "A".charAt(0);
 
                 if (currentQuestions.get(i).getAnswer(answerPosition) == currentQuestions.get(i).getCorrectAnswer()) {
-                    System.out.println("Correct");
+                    System.out.println("Correct. You chose " + currentQuestions.get(i).getAnswer(answerPosition) + ".");
                     userScore = userScore + 1000;
                 } else {
-                    System.out.println("Incorrect");
+                    System.out.println("Incorrect. You chose " + currentQuestions.get(i).getAnswer(answerPosition) + ". The Correct answer " + currentQuestions.get(i).getCorrectAnswer() + ".");
                 }
             }
 
