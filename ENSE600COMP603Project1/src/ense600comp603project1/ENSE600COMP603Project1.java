@@ -30,61 +30,79 @@ public class ENSE600COMP603Project1 {
 
     public static void main(String[] args) {
 
+        final int MAXQUESTIONS = 30;
         Scanner sc = new Scanner(System.in);
-        int score = 0;
-
-        List<Questions> questions = readQuestions();
-
+        int userScore = 0;
         int ASCIIAnswers;
+        int questionsNumber = 0;
 
-        for (int i = 0; i < questions.size(); i++) {
+        List<Questions> questionsEasy = readQuestions("EasyQuestions");
+        List<Questions> questionsMedium = readQuestions("MeduimQuestions");
+        List<Questions> questionsHard = readQuestions("HardQuestions");
+        List<Questions> currentQuestions = null;
 
-            System.out.println("Questions " + (i + 1) + ":\n" + questions.get(i));
+        for (int j = 0; j < MAXQUESTIONS; j++) {
 
-            while (true) {
+            if (j == 0) {
+                currentQuestions = questionsEasy;
+            } else if (j == 9) {
+                currentQuestions = questionsMedium;
+            } else if (j == 19) {
+                currentQuestions = questionsHard;
+            }
 
-                System.out.println("Please input A, B, C, D");
-                char userInputAnswer = sc.next().charAt(0);
+            for (int i = 0; i < currentQuestions.size(); i++) {
 
-                ASCIIAnswers = (int) (Character.toUpperCase(userInputAnswer));
+                while (true) {
 
-                if (ASCIIAnswers >= (int) "A".charAt(0) && ASCIIAnswers <= (int) "D".charAt(0)) {
-                    break;
+                    questionsNumber++;
+                    System.out.println("Questions " + (questionsNumber) + ":\n" + currentQuestions.get(i));
+
+                    System.out.println("Please input A, B, C, D");
+                    char userInputAnswer = sc.next().charAt(0);
+
+                    ASCIIAnswers = (int) (Character.toUpperCase(userInputAnswer));
+
+                    if (ASCIIAnswers >= (int) "A".charAt(0) && ASCIIAnswers <= (int) "D".charAt(0)) {
+                        break;
+                    } else {
+                        System.out.println("Invaild input.");
+                    }
+                }
+
+                int answerPosition = ASCIIAnswers - (int) "A".charAt(0);
+
+                if (currentQuestions.get(i).getAnswer(answerPosition) == currentQuestions.get(i).getCorrectAnswer()) {
+                    System.out.println("Correct");
+                    userScore = userScore + 1000;
                 } else {
-                    System.out.println("Invaild input.");
+                    System.out.println("Incorrect");
                 }
             }
 
-            int answerPosition = ASCIIAnswers - (int) "A".charAt(0);
-
-            if (questions.get(i).getAnswer(answerPosition) == questions.get(i).getCorrectAnswer()) {
-                System.out.println("Correct");
-                score = score + 1000;
-            } else {
-                System.out.println("Incorrect");
-            }
         }
 
         System.out.println("Input your name");
         sc.nextLine();
-        String name = sc.nextLine();
+        String userName = sc.nextLine();
 
-        Players newPlayer = new Players(name, score);
-        
+        Players newPlayer = new Players(userName, userScore);
+
         try {
-            writeFile(newPlayer.getUserName(), newPlayer.getScore());
+            writeFile(newPlayer.getUserName(), newPlayer.getUserScore());
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
-    public static List<Questions> readQuestions() {
+    public static List<Questions> readQuestions(String diffculty) {
 
         List<Questions> questionsList = new ArrayList<Questions>();
 
         try {
-            List<String> questionsLine = Files.readAllLines(Paths.get("./resources/Questions.txt"));
+
+            List<String> questionsLine = Files.readAllLines(Paths.get("./resources/" + diffculty + ".txt"));
 
             for (int i = 0; i < questionsLine.size(); i++) {
                 questionsList.add(new Questions(questionsLine.get(i).split("@")));
@@ -103,9 +121,9 @@ public class ENSE600COMP603Project1 {
     public static void writeFile(String newUserName, int newScore) throws FileNotFoundException {
 
         PrintWriter pw = new PrintWriter("./resources/Players.txt");
-        
+
         pw.println(newUserName + "@" + newScore);
-        
+
         pw.close();
     }
 

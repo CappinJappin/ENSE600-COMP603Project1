@@ -6,23 +6,21 @@ package ense600comp603project1;
  */
 public class Players {
 
-    private String firstName;
-    private String lastName;
-    private int score;
+    private String userName;
+    private int userScore;
 
-    public Players(String newFirstName, String newLastName, int newScore) {
+    public Players(String newUserName, int newScore) {
 
-        this.firstName = newFirstName;
-        this.lastName = newLastName;
-        this.score = newScore;
+        this.userName = newUserName;
+        this.userScore = newScore;
 
     }
-    
-    public String getFirstName(){
-        return firstName;
+
+    public String getUserName() {
+        return userName;
     }
     
-    public String getLastName(){
-        return lastName;
+    public int getUserScore() {
+        return userScore;
     }
 }
