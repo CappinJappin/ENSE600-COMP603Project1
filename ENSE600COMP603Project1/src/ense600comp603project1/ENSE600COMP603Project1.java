@@ -23,7 +23,7 @@ import java.util.Random;
 /**
  * Todo: Ken:
  *
- * more questions questions show correct answer players scoring
+ *  questions show correct answer players scoring
  *
  */
 public class ENSE600COMP603Project1 {
@@ -108,9 +108,7 @@ public class ENSE600COMP603Project1 {
             for (int i = 0; i < questionsLine.size(); i++) {
                 questionsList.add(new Questions(questionsLine.get(i).split("@")));
             }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
         }
 
