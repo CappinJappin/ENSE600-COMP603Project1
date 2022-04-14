@@ -1,20 +1,16 @@
 package ense600comp603project1;
 
+//JAMS COMMIT CODE
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.ArrayList;
-import java.lang.Math;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 /**
  *
