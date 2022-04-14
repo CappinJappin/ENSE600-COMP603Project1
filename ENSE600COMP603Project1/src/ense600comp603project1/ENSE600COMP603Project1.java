@@ -28,22 +28,23 @@ import java.util.Random;
  */
 public class ENSE600COMP603Project1 {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+        int score = 0;
 
         List<Questions> questions = readQuestions();
 
         int ASCIIAnswers;
 
         for (int i = 0; i < questions.size(); i++) {
-            
-            System.out.println(questions.get(i));
+
+            System.out.println("Questions " + (i + 1) + ":\n" + questions.get(i));
 
             while (true) {
 
                 System.out.println("Please input A, B, C, D");
-                char userInputAnswer = scanner.next().charAt(0);
+                char userInputAnswer = sc.next().charAt(0);
 
                 ASCIIAnswers = (int) (Character.toUpperCase(userInputAnswer));
 
@@ -58,10 +59,24 @@ public class ENSE600COMP603Project1 {
 
             if (questions.get(i).getAnswer(answerPosition) == questions.get(i).getCorrectAnswer()) {
                 System.out.println("Correct");
+                score = score + 1000;
             } else {
                 System.out.println("Incorrect");
             }
         }
+
+        System.out.println("Input your name");
+        sc.nextLine();
+        String name = sc.nextLine();
+
+        Players newPlayer = new Players(name, score);
+        
+        try {
+            writeFile(newPlayer.getUserName(), newPlayer.getScore());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     public static List<Questions> readQuestions() {
@@ -84,4 +99,14 @@ public class ENSE600COMP603Project1 {
 
         return questionsList;
     }
+
+    public static void writeFile(String newUserName, int newScore) throws FileNotFoundException {
+
+        PrintWriter pw = new PrintWriter("./resources/Players.txt");
+        
+        pw.println(newUserName + "@" + newScore);
+        
+        pw.close();
+    }
+
 }
