@@ -22,10 +22,8 @@ import java.util.Random;
  */
 /**
  * Todo: Ken:
- *  
- * more questions 
- * questions show correct answer 
- * players scoring
+ *
+ * more questions questions show correct answer players scoring
  *
  */
 public class ENSE600COMP603Project1 {
@@ -36,30 +34,33 @@ public class ENSE600COMP603Project1 {
 
         List<Questions> questions = readQuestions();
 
-        System.out.println(questions.get(0));
-
         int ASCIIAnswers;
 
-        while (true) {
+        for (int i = 0; i < questions.size(); i++) {
             
-            System.out.println("Please input A, B, C, D");
-            char userInputAnswer = scanner.next().charAt(0);
-            
-            ASCIIAnswers = (int) (Character.toUpperCase(userInputAnswer));
+            System.out.println(questions.get(i));
 
-            if (ASCIIAnswers >= (int) "A".charAt(0) && ASCIIAnswers <= (int) "D".charAt(0)) {
-                break;
-            }else{
-                System.out.println("Invaild input.");
+            while (true) {
+
+                System.out.println("Please input A, B, C, D");
+                char userInputAnswer = scanner.next().charAt(0);
+
+                ASCIIAnswers = (int) (Character.toUpperCase(userInputAnswer));
+
+                if (ASCIIAnswers >= (int) "A".charAt(0) && ASCIIAnswers <= (int) "D".charAt(0)) {
+                    break;
+                } else {
+                    System.out.println("Invaild input.");
+                }
             }
-        }
 
-        int answerPosition = ASCIIAnswers - (int) "A".charAt(0);
+            int answerPosition = ASCIIAnswers - (int) "A".charAt(0);
 
-        if (questions.get(0).getAnswer(answerPosition) == questions.get(0).getCorrectAnswer()) {
-            System.out.println("Correct");
-        } else {
-            System.out.println("Incorrect");
+            if (questions.get(i).getAnswer(answerPosition) == questions.get(i).getCorrectAnswer()) {
+                System.out.println("Correct");
+            } else {
+                System.out.println("Incorrect");
+            }
         }
     }
 
