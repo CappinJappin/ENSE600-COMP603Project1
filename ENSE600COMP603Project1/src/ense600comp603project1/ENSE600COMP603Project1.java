@@ -23,7 +23,9 @@ import java.util.Random;
 /**
  * Todo: Ken:
  *
- *  questions show correct answer players scoring
+ * Better CLI (in its own class, maybe separate fo input and output), Fix player scoring to not overwrite names, Simplify loops into more functions.
+ * Random Math questions, allow users to quit during, Have actual questions, Have 50/50 x3 times.
+ * Fix toString in Questions class, add comments.
  *
  */
 public class ENSE600COMP603Project1 {
@@ -80,7 +82,6 @@ public class ENSE600COMP603Project1 {
                     System.out.println("Incorrect. You chose " + currentQuestions.get(i).getAnswer(answerPosition) + ". The Correct answer " + currentQuestions.get(i).getCorrectAnswer() + ".");
                 }
             }
-
         }
 
         System.out.println("Input your name");
@@ -125,5 +126,4 @@ public class ENSE600COMP603Project1 {
 
         pw.close();
     }
-
 }

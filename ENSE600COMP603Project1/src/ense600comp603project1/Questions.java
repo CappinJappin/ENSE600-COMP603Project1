@@ -40,6 +40,6 @@ public class Questions {
         
         Collections.shuffle(answers);
         
-        return String.format("%s\nA: %s B: %s\nC: %s D: %s", questionText, answers.get(0), answers.get(1), answers.get(2), answers.get(3));
+        return String.format("%s?\nA: %s B: %s\nC: %s D: %s", questionText, answers.get(0), answers.get(1), answers.get(2), answers.get(3));
     }
 }
