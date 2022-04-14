@@ -30,7 +30,8 @@ public class ENSE600COMP603Project1 {
 
     public static void main(String[] args) {
 
-        final int MAXQUESTIONS = 30;
+        final int DIFFICULTY_INDEX = 3;
+        final int MAX_CURRENT_QUESTIONS = 10;
         Scanner sc = new Scanner(System.in);
         int userScore = 0;
         int ASCIIAnswers;
@@ -41,22 +42,22 @@ public class ENSE600COMP603Project1 {
         List<Questions> questionsHard = readQuestions("HardQuestions");
         List<Questions> currentQuestions = null;
 
-        for (int j = 0; j < MAXQUESTIONS; j++) {
+        for (int j = 0; j < DIFFICULTY_INDEX; j++) {
 
             if (j == 0) {
                 currentQuestions = questionsEasy;
-            } else if (j == 9) {
+            } else if (j == 1) {
                 currentQuestions = questionsMedium;
-            } else if (j == 19) {
+            } else if (j == 2) {
                 currentQuestions = questionsHard;
             }
 
-            for (int i = 0; i < currentQuestions.size(); i++) {
+            for (int i = 0; i < (currentQuestions.size() < MAX_CURRENT_QUESTIONS ? currentQuestions.size() : MAX_CURRENT_QUESTIONS); i++) {
 
                 while (true) {
 
                     questionsNumber++;
-                    System.out.println("Questions " + (questionsNumber) + ":\n" + currentQuestions.get(i));
+                    System.out.println("Questions " + questionsNumber + ":\n" + currentQuestions.get(i));
 
                     System.out.println("Please input A, B, C, D");
                     char userInputAnswer = sc.next().charAt(0);
@@ -96,13 +97,13 @@ public class ENSE600COMP603Project1 {
 
     }
 
-    public static List<Questions> readQuestions(String diffculty) {
+    public static List<Questions> readQuestions(String difficulty) {
 
         List<Questions> questionsList = new ArrayList<Questions>();
 
         try {
 
-            List<String> questionsLine = Files.readAllLines(Paths.get("./resources/" + diffculty + ".txt"));
+            List<String> questionsLine = Files.readAllLines(Paths.get("./resources/" + difficulty + ".txt"));
 
             for (int i = 0; i < questionsLine.size(); i++) {
                 questionsList.add(new Questions(questionsLine.get(i).split("@")));
