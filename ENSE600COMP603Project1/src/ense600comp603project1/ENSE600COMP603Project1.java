@@ -88,7 +88,6 @@ public class ENSE600COMP603Project1 {
                 questionsNumber++;
 
                 //Ask the Question
-                System.out.println(questions.get(q));
                 System.out.println("Question " + questionsNumber + ":\n" + questions.get(q).getQuestionText());
 
                 //announce the Options
@@ -113,7 +112,7 @@ public class ENSE600COMP603Project1 {
 
                     answerPosition = ASCIIAnswers - (int) "A".charAt(0);
                     userScore = userScore + answerChecker(fiftyFifty.get(answerPosition), questions.get(q).getCorrectAnswer(), ASCIIAnswers);
-                    System.out.println("Your current score is " + userScore + " .\n\n");
+                    System.out.println("Your current score is " + userScore + " .\n");
    
                 } else if (ASCIIAnswers == (int) "P".charAt(0) && powerUp == 0) {
 
