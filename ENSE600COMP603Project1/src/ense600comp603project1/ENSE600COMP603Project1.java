@@ -41,42 +41,46 @@ public class ENSE600COMP603Project1 {
     
     public static void main(String[] args) {
 
-        final int MAX_DIFFICULTIES = 3;
-        final int MAX_CURRENT_QUESTIONS = 1; // 3 lots for each: small, medium, hard
+        final int MAX_LEVELS = 3; //there are currently 3 levels: easy, medium, hard
+        final int MAX_QUESTIONS = 1; //number of questions per level
         Scanner sc = new Scanner(System.in);
         int userScore = 0;
         int ASCIIAnswers;
         int questionsNumber = 0;
-
+        
+        //Question Levels (easy, medium, hard)
         List<Questions> questionsEasy = readQuestions("EasyQuestions");
         List<Questions> questionsMedium = readQuestions("MeduimQuestions");
         List<Questions> questionsHard = readQuestions("HardQuestions");
-        List<Questions> currentQuestions = null;
+        List<Questions> questions = null;
 
         //Intro
         System.out.println("Welcome to \"Who Wants To Be A Millionaire\"");
         System.out.println();
         
-        for (int levelIndex = 0; levelIndex < MAX_DIFFICULTIES; levelIndex++) {
+        for (int d = 0; d < MAX_LEVELS; d++) {
 
-            if (levelIndex == 0) {
-                currentQuestions = questionsEasy;
-            } else if (levelIndex == 1) {
-                currentQuestions = questionsMedium;
-            } else if (levelIndex == 2) {
-                currentQuestions = questionsHard;
+            if (d == 0) {
+                questions = questionsEasy;
+            } else if (d == 1) {
+                questions = questionsMedium;
+            } else if (d == 2) {
+                questions = questionsHard;
             }
             
-            for (int questionIndex = 0; questionIndex < (currentQuestions.size() < MAX_CURRENT_QUESTIONS ? currentQuestions.size() : MAX_CURRENT_QUESTIONS); questionIndex++) {
-                //User Input
+            for (int q = 0; q < (questions.size() < MAX_QUESTIONS ? questions.size() : MAX_QUESTIONS); q++) {
                 questionsNumber++;
+                
+                //Ask the Question
+                System.out.println("Question " + questionsNumber + ":\n" + questions.get(q).getQuestionText());
                 while (true) {
-
-                    questionsNumber++;
-                    System.out.println("Questions " + questionsNumber + ":\n" + currentQuestions.get(questionIndex).getQuestionText());
-                    System.out.println("A: " + currentQuestions.get(questionIndex).getAnswer(0) + " B: " + currentQuestions.get(questionIndex).getAnswer(1) + "\nC: " + currentQuestions.get(questionIndex).getAnswer(2) + " D: " + currentQuestions.get(questionIndex).getAnswer(3));
-
-                    System.out.println("Please input A, B, C, D");
+                    //announce the Options
+                    System.out.println("A: " + questions.get(q).getAnswer(0)
+                            + " B: " + questions.get(q).getAnswer(1)
+                            + "\nC: " + questions.get(q).getAnswer(2)
+                            + " D: " + questions.get(q).getAnswer(3));
+                        
+                    //User Input (letter A, B, C or D)
                     char userInputAnswer = sc.next().charAt(0);
 
                     ASCIIAnswers = (int) (Character.toUpperCase(userInputAnswer));
@@ -84,21 +88,23 @@ public class ENSE600COMP603Project1 {
                     if (ASCIIAnswers >= (int) "A".charAt(0) && ASCIIAnswers <= (int) "D".charAt(0)) {
                         break;
                     } else {
-                        System.out.println("Invaild input.");
+                        System.out.println("Invaild input, please enter a letter:");
+
                     }
                 }
 
                 int answerPosition = ASCIIAnswers - (int) "A".charAt(0);
 
-                if (currentQuestions.get(questionIndex).getAnswer(answerPosition) == currentQuestions.get(questionIndex).getCorrectAnswer()) {
-                    System.out.println("Correct. You chose " + currentQuestions.get(questionIndex).getAnswer(answerPosition) + ".");
+                if (questions.get(q).getAnswer(answerPosition) == questions.get(q).getCorrectAnswer()) {
+                    System.out.println("Correct. You chose " + questions.get(q).getAnswer(answerPosition) + ".");
                     userScore = userScore + 1000;
                 } else {
-                    System.out.println("Incorrect. You chose " + currentQuestions.get(questionIndex).getAnswer(answerPosition) + ". The Correct answer " + currentQuestions.get(questionIndex).getCorrectAnswer() + ".");
+                    System.out.println("Incorrect. You chose " + questions.get(q).getAnswer(answerPosition) + ". The Correct answer " + questions.get(q).getCorrectAnswer() + ".");
                 }
             }
         }
-
+        
+        //Saving your score
         System.out.println("Input your name");
         sc.nextLine();
         String userName = sc.nextLine();
