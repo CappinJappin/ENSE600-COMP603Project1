@@ -53,10 +53,10 @@ public class ENSE600COMP603Project1 {
         int powerUp = 3;
         
         //Question Levels (easy, medium, hard)
-        List<Question> questionsEasy = readQuestions("EasyQuestions");
-        List<Question> questionsMedium = readQuestions("MeduimQuestions");
-        List<Question> questionsHard = readQuestions("HardQuestions");
-        List<Question> questions = null;
+        List<Question> questionsEasy = Question.readQuestions("EasyQuestions");
+        List<Question> questionsMedium = Question.readQuestions("MeduimQuestions");
+        List<Question> questionsHard = Question.readQuestions("HardQuestions");
+        List<Question> questions = null; //A List of Question objects (question difficulty depends on level)
 
         //Intro Text
         System.out.println("Welcome to \"Who Wants To Be A Millionaire\"");
@@ -82,10 +82,13 @@ public class ENSE600COMP603Project1 {
                 default: break;
             }
 
-            for (int q = 0; q < (questions.size() < MAX_QUESTIONS ? questions.size() : MAX_QUESTIONS); q++) {
+            for (int q=0;
+                    q<(questions.size()<MAX_QUESTIONS?questions.size():MAX_QUESTIONS);
+                    q++) {
                 questionsNumber++;
 
                 //Ask the Question
+                System.out.println(questions.get(q));
                 System.out.println("Question " + questionsNumber + ":\n" + questions.get(q).getQuestionText());
 
                 //announce the Options
@@ -154,31 +157,35 @@ public class ENSE600COMP603Project1 {
         }
 
     }
-
-    public static List<Question> readQuestions(String difficulty) {
-
-        List<Question> questionsList = new ArrayList<Question>();
-
-        try {
-
-            List<String> questionsLine = Files.readAllLines(Paths.get("./resources/" + difficulty + ".txt"));
-
-            for (int i = 0; i < questionsLine.size(); i++) {
-                questionsList.add(new Question(questionsLine.get(i).split("@")));
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        Collections.shuffle(questionsList);
-
-        return questionsList;
-    }
-
+    
+//    /**
+//     * Imports Quiz questions from a file 
+//     * @param difficulty
+//     * @return 
+//     */
+//    public static List<Question> readQuestions(String difficulty) {
+//        List<Question> questionsList = new ArrayList<Question>();
+//        try {
+//            List<String> questionsLine = Files.readAllLines(Paths.get("./resources/" + difficulty + ".txt"));
+//            for (int i = 0; i < questionsLine.size(); i++) {
+//                questionsList.add(new Question(questionsLine.get(i).split("@")));
+//            }
+//        } catch (Exception ex) {
+//            Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        Collections.shuffle(questionsList);
+//        return questionsList;
+//    }
+    
+    /**
+     * Writes a Name and Score to the Scores.txt file
+     * 
+     * @param newUserName
+     * @param newScore
+     * @throws FileNotFoundException 
+     */
     public static void writeFile(String newUserName, int newScore) throws FileNotFoundException {
-
         PrintWriter pw = null;
-        
         try {
             pw = new PrintWriter(new FileWriter("./resources/Players.txt", true));
         } catch (IOException ex) {

@@ -1,8 +1,12 @@
 package ense600comp603project1;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,8 +22,7 @@ public class Question {
     @Override
     public String toString()
     {
-        //CODE
-        return "[no Questions toString() yet]";
+        return "";        
     }
     
     //Constructor
@@ -50,5 +53,24 @@ public class Question {
         Collections.shuffle(fiftyFifty);
         
         return fiftyFifty;
+    }
+    
+    /**
+     * Imports Quiz questions from a file 
+     * @param difficulty
+     * @return 
+     */
+    public static List<Question> readQuestions(String difficulty) {
+        List<Question> questionsList = new ArrayList<Question>();
+        try {
+            List<String> questionsLine = Files.readAllLines(Paths.get("./resources/" + difficulty + ".txt"));
+            for (int i = 0; i < questionsLine.size(); i++) {
+                questionsList.add(new Question(questionsLine.get(i).split("@")));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Collections.shuffle(questionsList);
+        return questionsList;
     }
 }
