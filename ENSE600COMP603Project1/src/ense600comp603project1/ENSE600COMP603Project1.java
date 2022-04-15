@@ -19,14 +19,23 @@ import java.util.List;
  */
 /**
  * Todo: Ken:
- *
- * Better CLI (in its own class, maybe separate fo input and output), Fix player scoring to not overwrite names, Simplify loops into more functions.
- * Random Math questions, allow users to quit during, Have actual questions, Have 50/50 x3 times.
- * Fix toString in Questions class, add comments.
+ * [] Better CLI (in its own class, maybe separate fo input and output),
+ * [] Fix player scoring to not overwrite names,
+ * [] Simplify loops into more functions.
+ * [] Random Math questions,
+ * [] allow users to quit during,
+ * [] Have actual questions,
+ * [] Have 50/50 x3 times.
+ * [] Fix toString in Questions class,
+ * [] add comments.
+ * 
+ * Problems to Fix:
+ * [] Make Scores add to end of txt file, not overwrite
+ * 
  *
  */
 public class ENSE600COMP603Project1 {
-
+    
     public static void main(String[] args) {
 
         final int DIFFICULTY_INDEX = 3;
@@ -41,6 +50,10 @@ public class ENSE600COMP603Project1 {
         List<Questions> questionsHard = readQuestions("HardQuestions");
         List<Questions> currentQuestions = null;
 
+        //Intro
+        System.out.println("Welcome to \"Who Wants To Be A Millionaire\"");
+        System.out.println();
+        
         for (int j = 0; j < DIFFICULTY_INDEX; j++) {
 
             if (j == 0) {
