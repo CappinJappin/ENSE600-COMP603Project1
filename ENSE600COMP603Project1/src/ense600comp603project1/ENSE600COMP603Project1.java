@@ -20,9 +20,10 @@ import java.util.List;
 /**
  * Todo: Ken:
  *
- * Better CLI (in its own class, maybe separate fo input and output), Fix player scoring to not overwrite names, Simplify loops into more functions.
- * Random Math questions, allow users to quit during, Have actual questions, Have 50/50 x3 times.
- * Fix toString in Questions class, add comments.
+ * Better CLI (in its own class, maybe separate fo input and output), Fix player
+ * scoring to not overwrite names, Simplify loops into more functions. Random
+ * Math questions, allow users to quit during, Have actual questions, Have 50/50
+ * x3 times. Fix toString in Questions class, add comments.
  *
  */
 public class ENSE600COMP603Project1 {
@@ -56,7 +57,8 @@ public class ENSE600COMP603Project1 {
                 while (true) {
 
                     questionsNumber++;
-                    System.out.println("Questions " + questionsNumber + ":\n" + currentQuestions.get(i));
+                    System.out.println("Questions " + questionsNumber + ":\n" + currentQuestions.get(i).getQuestionText());
+                    System.out.println("A: " + currentQuestions.get(i).getAnswer(0) + " B: " + currentQuestions.get(i).getAnswer(1) + "\nC: " + currentQuestions.get(i).getAnswer(2) + " D: " + currentQuestions.get(i).getAnswer(3));
 
                     System.out.println("Please input A, B, C, D");
                     char userInputAnswer = sc.next().charAt(0);

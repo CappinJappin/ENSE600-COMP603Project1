@@ -23,23 +23,30 @@ public class Questions {
         for (int i = 1; i < newQuestions.length; i++) {
 
             this.answers.add(newQuestions[i]);
-
+            
         }
+        
+        Collections.shuffle(this.answers);
+        
     }
-    
-    public String getCorrectAnswer(){
+
+    public String getQuestionText() {
+        return questionText;
+    }
+
+    public String getCorrectAnswer() {
         return correctAnswer;
     }
-    
-    public String getAnswer(int answerPosition){
+
+    public String getAnswer(int answerPosition) {
         return answers.get(answerPosition);
     }
-    
-    @Override
-    public String toString(){
-        
+
+    /*@Override
+    public String toString() {
+
         Collections.shuffle(answers);
-        
-        return String.format("%s?\nA: %s B: %s\nC: %s D: %s", questionText, answers.get(0), answers.get(1), answers.get(2), answers.get(3));
-    }
+
+        return answers;
+    }*/
 }
