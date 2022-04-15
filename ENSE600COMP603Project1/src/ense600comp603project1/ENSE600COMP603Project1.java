@@ -19,8 +19,7 @@ import java.util.List;
 /**
  *
  * @author Keno0
- */
-/**
+ * 
  * To Do: Ken:
  * [] Fix player scoring to not overwrite names,
  * [] Simplify loops into more functions.
@@ -57,10 +56,10 @@ public class ENSE600COMP603Project1 {
         int questionsNumber = 0;
         
         //Question Levels (easy, medium, hard)
-        List<Questions> questionsEasy = readQuestions("EasyQuestions");
-        List<Questions> questionsMedium = readQuestions("MeduimQuestions");
-        List<Questions> questionsHard = readQuestions("HardQuestions");
-        List<Questions> questions = null;
+        List<Question> questionsEasy = readQuestions("EasyQuestions");
+        List<Question> questionsMedium = readQuestions("MeduimQuestions");
+        List<Question> questionsHard = readQuestions("HardQuestions");
+        List<Question> questions = null;
 
         //Intro
         System.out.println("Welcome to \"Who Wants To Be A Millionaire\"");
@@ -68,12 +67,11 @@ public class ENSE600COMP603Project1 {
         
         for (int d = 0; d < MAX_LEVELS; d++) {
 
-            if (d == 0) {
-                questions = questionsEasy;
-            } else if (d == 1) {
-                questions = questionsMedium;
-            } else if (d == 2) {
-                questions = questionsHard;
+            switch (d) {
+                case 0: questions = questionsEasy; break;
+                case 1: questions = questionsMedium; break;
+                case 2: questions = questionsHard; break;
+                default: break;
             }
             
             for (int q = 0; q < (questions.size() < MAX_QUESTIONS ? questions.size() : MAX_QUESTIONS); q++) {
@@ -127,16 +125,16 @@ public class ENSE600COMP603Project1 {
 
     }
 
-    public static List<Questions> readQuestions(String difficulty) {
+    public static List<Question> readQuestions(String difficulty) {
 
-        List<Questions> questionsList = new ArrayList<Questions>();
+        List<Question> questionsList = new ArrayList<Question>();
 
         try {
 
             List<String> questionsLine = Files.readAllLines(Paths.get("./resources/" + difficulty + ".txt"));
 
             for (int i = 0; i < questionsLine.size(); i++) {
-                questionsList.add(new Questions(questionsLine.get(i).split("@")));
+                questionsList.add(new Question(questionsLine.get(i).split("@")));
             }
         } catch (Exception ex) {
             Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);

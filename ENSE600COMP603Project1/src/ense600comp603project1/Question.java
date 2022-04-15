@@ -8,12 +8,13 @@ import java.util.List;
  *
  * @author Keno0
  */
-public class Questions {
+public class Question {
 
     private String questionText;
     private String correctAnswer;
     private List<String> answers = new ArrayList<>();
 
+    //To String
     @Override
     public String toString()
     {
@@ -21,30 +22,20 @@ public class Questions {
         return "[no Questions toString() yet]";
     }
     
-    public Questions(String[] newQuestions) {
-
+    //Constructor
+    public Question(String[] newQuestions) {
         this.questionText = newQuestions[0];
         this.correctAnswer = newQuestions[1];
-
         for (int i = 1; i < newQuestions.length; i++) {
-
             this.answers.add(newQuestions[i]);
-
         }
-
         Collections.shuffle(this.answers);
-
     }
-
-    public String getQuestionText() {
-        return questionText;
-    }
-
-    public String getCorrectAnswer() {
-        return correctAnswer;
-    }
-
-    public String getAnswer(int answerPosition) {
-        return answers.get(answerPosition);
-    }
+    
+    //Getters and Setters
+    public String getQuestionText() {return questionText;}
+    
+    public String getCorrectAnswer() {return correctAnswer;}
+    
+    public String getAnswer(int answerPosition) {return answers.get(answerPosition);}
 }
