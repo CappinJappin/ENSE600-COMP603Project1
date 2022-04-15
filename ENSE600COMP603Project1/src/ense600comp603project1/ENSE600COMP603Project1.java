@@ -72,6 +72,30 @@ public class ENSE600COMP603Project1 {
             t.start(); //START MUSIC THREAD (must close at end of program)
         }
         
+        System.out.println("A: New Game\nB: View Scores\nX: Quit (Press X any time to quit)");
+        sc.nextLine();
+        String input = sc.nextLine();
+        while(true){
+            if (input.toUpperCase().equals("A")){
+                break;
+            }else if(input.toUpperCase().equals("B")){
+                
+                HashMap<String, Integer> displayPlayers = readPlayers();
+                System.out.println(displayPlayers);
+                
+                System.out.println("A: New Game\nB: View Scores\nX: Quit (Press X any time to quit)");
+                input = sc.nextLine();
+                
+            }else if (input.toUpperCase().equals("X")){
+                System.exit(0);
+            }else{
+                System.out.println("Invalid input");
+                input = sc.nextLine();
+            }
+        }
+        
+        
+        
         //Questions
         for (int d = 0; d < MAX_LEVELS; d++) {
 
@@ -194,6 +218,35 @@ public class ENSE600COMP603Project1 {
         pw.println(newUserName + "@" + newScore);
 
         pw.close();
+    }
+    
+    public static HashMap<String, Integer> readPlayers(){
+        
+        HashMap<String, Integer> playerList = new HashMap();
+        BufferedReader br = null;
+        
+        try {
+            
+            br = new BufferedReader(new FileReader("./resources/Players.txt"));
+            String line = "";
+            while ((line = br.readLine()) != null){
+                String str[] = line.split("@");
+                playerList.put(str[0], Integer.parseInt(str[1]));
+            }
+        } catch(FileNotFoundException ex){
+            Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
+        } catch(IOException ex) {
+            Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            if (br != null){
+                try {
+                    br.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return playerList;
     }
     
     public static int inputChecker(int powerUpCheck) {
