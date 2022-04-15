@@ -12,9 +12,15 @@ public class Questions {
 
     private String questionText;
     private String correctAnswer;
-
     private List<String> answers = new ArrayList<>();
 
+    @Override
+    public String toString()
+    {
+        //CODE
+        return "[no Questions toString() yet]";
+    }
+    
     public Questions(String[] newQuestions) {
 
         this.questionText = newQuestions[0];
