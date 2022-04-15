@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  *
- * @author Keno0
+ * @author Ken Zheng and James Dinsdale
  */
 public class Question {
 
