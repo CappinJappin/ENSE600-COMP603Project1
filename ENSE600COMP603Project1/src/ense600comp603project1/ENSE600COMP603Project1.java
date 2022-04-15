@@ -51,11 +51,13 @@ public class ENSE600COMP603Project1 {
     public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException, InterruptedException {
 
         final int MAX_LEVELS = 3; //there are currently 3 levels: easy, medium, hard
-        final int MAX_QUESTIONS = 1; //number of questions per level
+        final int MAX_QUESTIONS = 2; //number of questions per level
         Scanner sc = new Scanner(System.in);
         int userScore = 0;
         int ASCIIAnswers;
+        int answerPosition;
         int questionsNumber = 0;
+        int powerUp = 3;
         
         //Question Levels (easy, medium, hard)
         List<Question> questionsEasy = readQuestions("EasyQuestions");
@@ -99,25 +101,55 @@ public class ENSE600COMP603Project1 {
                         + " B: " + questions.get(q).getAnswer(1)
                         + "\nC: " + questions.get(q).getAnswer(2)
                         + " D: " + questions.get(q).getAnswer(3));
+                
+                System.out.println("(P) to use 50/50. You have " + powerUp + " left");
 
-                //User Input (letter A, B, C or D)
-                ASCIIAnswers = inputChecker();
+                //User Input (letter A, B, C, D or P)
+                ASCIIAnswers = inputChecker(0);
+           
+                if (ASCIIAnswers == (int) "P".charAt(0) && powerUp != 0 ) {
 
-                int answerPosition = ASCIIAnswers - (int) "A".charAt(0);
+                    powerUp--;
 
-                if (questions.get(q).getAnswer(answerPosition) == questions.get(q).getCorrectAnswer()) {
-                    System.out.println("Correct. You chose " + questions.get(q).getAnswer(answerPosition) + ".");
-                    userScore = userScore + 1000;
+                    List<String> fiftyFifty = questions.get(q).getFiftyFifty();
+                    System.out.println("A: " + fiftyFifty.get(0) + " B: " + fiftyFifty.get(1));
+
+                    ASCIIAnswers = inputChecker(1);
+
+                    answerPosition = ASCIIAnswers - (int) "A".charAt(0);
+                    userScore = userScore + answerChecker(fiftyFifty.get(answerPosition), questions.get(q).getCorrectAnswer(), ASCIIAnswers);
+                    System.out.println("Your current score is " + userScore + " .\n\n");
+   
+                } else if (ASCIIAnswers == (int) "P".charAt(0) && powerUp == 0) {
+
+                    while (true) {
+                        System.out.println("You are out of 50/50s.");
+
+                        ASCIIAnswers = inputChecker(0);
+
+                        if (ASCIIAnswers != (int) "P".charAt(0)) {
+                            break;
+                        }
+                    }
+
+                    answerPosition = ASCIIAnswers - (int) "A".charAt(0);
+                    userScore = userScore + answerChecker(questions.get(q).getAnswer(answerPosition), questions.get(q).getCorrectAnswer(), ASCIIAnswers);
+                    System.out.println("Your current score is " + userScore + " .\n\n");
+
                 } else {
-                    System.out.println("Incorrect. You chose " + questions.get(q).getAnswer(answerPosition) + ". The Correct answer " + questions.get(q).getCorrectAnswer() + ".");
+
+                    answerPosition = ASCIIAnswers - (int) "A".charAt(0);
+                    userScore = userScore + answerChecker(questions.get(q).getAnswer(answerPosition), questions.get(q).getCorrectAnswer(), ASCIIAnswers);
+                    System.out.println("Your current score is " + userScore + " .\n\n");
                 }
             }
         }
-        
+
         t.stop();
         
         //Saving your score
-        System.out.println("Input your name");
+        System.out.println("Your final score is " + userScore + " .");
+        System.out.println("Input your name: ");
         sc.nextLine();
         String userName = sc.nextLine();
 
@@ -166,7 +198,7 @@ public class ENSE600COMP603Project1 {
         pw.close();
     }
     
-    public static int inputChecker() {
+    public static int inputChecker(int powerUpCheck) {
 
         Scanner sc = new Scanner(System.in);
         int ASCIIinput;
@@ -176,17 +208,41 @@ public class ENSE600COMP603Project1 {
             char userInputAnswer = sc.next().charAt(0);
 
             ASCIIinput = (int) (Character.toUpperCase(userInputAnswer));
-
-            if (ASCIIinput >= (int) "A".charAt(0) && ASCIIinput <= (int) "D".charAt(0)) {
-                break;
-            } else if (ASCIIinput == (int) "X".charAt(0)){
-                System.exit(0);
+            if (powerUpCheck == 0) {
+                if (ASCIIinput >= (int) "A".charAt(0) && ASCIIinput <= (int) "D".charAt(0)) {
+                    break;
+                } else if (ASCIIinput == (int) "X".charAt(0)) {
+                    System.exit(0);
+                } else if (ASCIIinput == (int) "P".charAt(0)) {
+                    break;
+                } else {
+                    System.out.println("Invaild input, please enter a letter:");
+                }
             } else {
-                System.out.println("Invaild input, please enter a letter:");
-
+                if (ASCIIinput >= (int) "A".charAt(0) && ASCIIinput <= (int) "B".charAt(0)) {
+                    break;
+                } else if (ASCIIinput == (int) "X".charAt(0)) {
+                    System.exit(0);
+                } else {
+                    System.out.println("Invaild input, please enter a letter:");
+                }
             }
         }
 
         return ASCIIinput;
+    }
+
+    public static int answerChecker(String inputAnswer, String correctAnswer, int ASCIIAnswers) {
+        
+        int questionScore = 0;
+        
+        if (inputAnswer == correctAnswer) {
+            System.out.println("\n\nCorrect. You chose " + correctAnswer + ".");
+            questionScore = questionScore + 1000;
+        } else {
+            System.out.println("\n\nIncorrect. You chose " + inputAnswer + ". The Correct answer " + correctAnswer + ".");
+        }
+        
+        return questionScore;
     }
 }

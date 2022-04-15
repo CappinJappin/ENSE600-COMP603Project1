@@ -38,4 +38,17 @@ public class Question {
     public String getCorrectAnswer() {return correctAnswer;}
     
     public String getAnswer(int answerPosition) {return answers.get(answerPosition);}
+    
+    public List<String> getFiftyFifty() {
+        
+        int answerIndex = this.answers.indexOf(this.correctAnswer);
+        int randomNumber = (int) Math.floor(Math.random()*(3-1+1)+1);
+        
+        List<String> fiftyFifty = new ArrayList<>();
+        fiftyFifty.add(this.correctAnswer);
+        fiftyFifty.add(this.answers.get((answerIndex + randomNumber)%4));
+        Collections.shuffle(fiftyFifty);
+        
+        return fiftyFifty;
+    }
 }
