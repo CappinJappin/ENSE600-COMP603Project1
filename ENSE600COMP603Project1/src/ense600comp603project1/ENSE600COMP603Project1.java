@@ -4,6 +4,8 @@ package ense600comp603project1;
 //Jams' Push Upstream Line
 //Extra line to fix weird pull error
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -27,7 +29,7 @@ import java.util.List;
  * [] allow users to quit during,
  * [] Have actual questions,
  * [] Have 50/50 x3 times.
- * [] Fix toString in Questions class,
+ * [v] Fix toString in Questions class,
  * [] add comments.
  * 
  * Problems to Fix:
@@ -69,7 +71,10 @@ public class ENSE600COMP603Project1 {
                 //User Input
                 questionsNumber++;
                 while (true) {
-                    System.out.println("Questions " + questionsNumber + ":\n" + currentQuestions.get(questionIndex));
+
+                    questionsNumber++;
+                    System.out.println("Questions " + questionsNumber + ":\n" + currentQuestions.get(questionIndex).getQuestionText());
+                    System.out.println("A: " + currentQuestions.get(questionIndex).getAnswer(0) + " B: " + currentQuestions.get(questionIndex).getAnswer(1) + "\nC: " + currentQuestions.get(questionIndex).getAnswer(2) + " D: " + currentQuestions.get(questionIndex).getAnswer(3));
 
                     System.out.println("Please input A, B, C, D");
                     char userInputAnswer = sc.next().charAt(0);
@@ -130,7 +135,13 @@ public class ENSE600COMP603Project1 {
 
     public static void writeFile(String newUserName, int newScore) throws FileNotFoundException {
 
-        PrintWriter pw = new PrintWriter("./resources/Players.txt");
+        PrintWriter pw = null;
+        
+        try {
+            pw = new PrintWriter(new FileWriter("./resources/Players.txt", true));
+        } catch (IOException ex) {
+            Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         pw.println(newUserName + "@" + newScore);
 
