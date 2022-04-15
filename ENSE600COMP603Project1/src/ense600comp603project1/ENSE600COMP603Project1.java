@@ -21,21 +21,29 @@ import java.util.List;
  * @author Keno0
  */
 /**
- * Todo: Ken:
- * [] Better CLI (in its own class, maybe separate fo input and output),
+ * To Do: Ken:
  * [] Fix player scoring to not overwrite names,
  * [] Simplify loops into more functions.
- * [] Random Math questions,
- * [] allow users to quit during,
- * [] Have actual questions,
- * [] Have 50/50 x3 times.
- * [v] Fix toString in Questions class,
+ * [] Random Math questions
+ * [] allow users to quit anytime
+ * [] Have actual questions
+ * [] Have 50/50 x3 times
+ * [] Fix toString in Questions class
+ * [] Better CLI (Command Line Interface: in its own class, maybe separate fo input and output),
+ * 
+ * James:
+ * [X] Fix Question Count
  * [] add comments.
  * 
- * Problems to Fix:
- * [] Make Scores add to end of txt file, not overwrite
- * [X] Fix Question Count
- *
+ * Assignment Requirements:
+ * [] User Interface 
+ * [] File I/O 
+ * [] Collections
+ * [] Threads
+ * [] Software functionality (Easy to Use, no bugs) 
+ * [] Software Design (Easy to Understand Code, use comments, OOP) 
+ * [] Split Work & Show Each Contribution 
+ * 
  */
 public class ENSE600COMP603Project1 {
     
