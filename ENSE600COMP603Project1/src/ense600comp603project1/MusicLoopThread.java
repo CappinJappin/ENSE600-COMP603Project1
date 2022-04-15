@@ -19,15 +19,29 @@ public class MusicLoopThread implements Runnable {
 
     
     //Constructor
-    public MusicLoopThread(String musicFilePath, int millis) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        File file = new File(musicFilePath);
-        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
-        //this.file = new File(musicFilePath);
-        //this.audioStream = AudioSystem.getAudioInputStream(this.file);
-
-        this.loopDurationMillis = millis;
-        this.clip = AudioSystem.getClip();
-        clip.open(audioStream);
+    public MusicLoopThread(String musicFilePath, int millis) {
+        AudioInputStream audioStream = null;
+        try {
+            File file = new File(musicFilePath);
+            audioStream = AudioSystem.getAudioInputStream(file);
+            //this.file = new File(musicFilePath);
+            //this.audioStream = AudioSystem.getAudioInputStream(this.file);
+            this.loopDurationMillis = millis;
+            this.clip = AudioSystem.getClip();
+            clip.open(audioStream);
+        } catch (UnsupportedAudioFileException ex) {
+            Logger.getLogger(MusicLoopThread.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MusicLoopThread.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (LineUnavailableException ex) {
+            Logger.getLogger(MusicLoopThread.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                audioStream.close();
+            } catch (IOException ex) {
+                Logger.getLogger(MusicLoopThread.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     @Override
