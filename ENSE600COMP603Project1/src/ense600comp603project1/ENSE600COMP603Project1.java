@@ -33,15 +33,15 @@ import java.util.List;
  * 
  * Problems to Fix:
  * [] Make Scores add to end of txt file, not overwrite
- * 
+ * [X] Fix Question Count
  *
  */
 public class ENSE600COMP603Project1 {
     
     public static void main(String[] args) {
 
-        final int DIFFICULTY_INDEX = 3;
-        final int MAX_CURRENT_QUESTIONS = 10;
+        final int MAX_DIFFICULTIES = 3;
+        final int MAX_CURRENT_QUESTIONS = 1; // 3 lots for each: small, medium, hard
         Scanner sc = new Scanner(System.in);
         int userScore = 0;
         int ASCIIAnswers;
@@ -56,23 +56,24 @@ public class ENSE600COMP603Project1 {
         System.out.println("Welcome to \"Who Wants To Be A Millionaire\"");
         System.out.println();
         
-        for (int j = 0; j < DIFFICULTY_INDEX; j++) {
+        for (int levelIndex = 0; levelIndex < MAX_DIFFICULTIES; levelIndex++) {
 
-            if (j == 0) {
+            if (levelIndex == 0) {
                 currentQuestions = questionsEasy;
-            } else if (j == 1) {
+            } else if (levelIndex == 1) {
                 currentQuestions = questionsMedium;
-            } else if (j == 2) {
+            } else if (levelIndex == 2) {
                 currentQuestions = questionsHard;
             }
-
-            for (int i = 0; i < (currentQuestions.size() < MAX_CURRENT_QUESTIONS ? currentQuestions.size() : MAX_CURRENT_QUESTIONS); i++) {
-
+            
+            for (int questionIndex = 0; questionIndex < (currentQuestions.size() < MAX_CURRENT_QUESTIONS ? currentQuestions.size() : MAX_CURRENT_QUESTIONS); questionIndex++) {
+                //User Input
+                questionsNumber++;
                 while (true) {
 
                     questionsNumber++;
-                    System.out.println("Questions " + questionsNumber + ":\n" + currentQuestions.get(i).getQuestionText());
-                    System.out.println("A: " + currentQuestions.get(i).getAnswer(0) + " B: " + currentQuestions.get(i).getAnswer(1) + "\nC: " + currentQuestions.get(i).getAnswer(2) + " D: " + currentQuestions.get(i).getAnswer(3));
+                    System.out.println("Questions " + questionsNumber + ":\n" + currentQuestions.get(questionIndex).getQuestionText());
+                    System.out.println("A: " + currentQuestions.get(questionIndex).getAnswer(0) + " B: " + currentQuestions.get(questionIndex).getAnswer(1) + "\nC: " + currentQuestions.get(questionIndex).getAnswer(2) + " D: " + currentQuestions.get(questionIndex).getAnswer(3));
 
                     System.out.println("Please input A, B, C, D");
                     char userInputAnswer = sc.next().charAt(0);
@@ -88,11 +89,11 @@ public class ENSE600COMP603Project1 {
 
                 int answerPosition = ASCIIAnswers - (int) "A".charAt(0);
 
-                if (currentQuestions.get(i).getAnswer(answerPosition) == currentQuestions.get(i).getCorrectAnswer()) {
-                    System.out.println("Correct. You chose " + currentQuestions.get(i).getAnswer(answerPosition) + ".");
+                if (currentQuestions.get(questionIndex).getAnswer(answerPosition) == currentQuestions.get(questionIndex).getCorrectAnswer()) {
+                    System.out.println("Correct. You chose " + currentQuestions.get(questionIndex).getAnswer(answerPosition) + ".");
                     userScore = userScore + 1000;
                 } else {
-                    System.out.println("Incorrect. You chose " + currentQuestions.get(i).getAnswer(answerPosition) + ". The Correct answer " + currentQuestions.get(i).getCorrectAnswer() + ".");
+                    System.out.println("Incorrect. You chose " + currentQuestions.get(questionIndex).getAnswer(answerPosition) + ". The Correct answer " + currentQuestions.get(questionIndex).getCorrectAnswer() + ".");
                 }
             }
         }
