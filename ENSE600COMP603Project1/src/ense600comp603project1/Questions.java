@@ -23,11 +23,11 @@ public class Questions {
         for (int i = 1; i < newQuestions.length; i++) {
 
             this.answers.add(newQuestions[i]);
-            
+
         }
-        
+
         Collections.shuffle(this.answers);
-        
+
     }
 
     public String getQuestionText() {
@@ -41,12 +41,4 @@ public class Questions {
     public String getAnswer(int answerPosition) {
         return answers.get(answerPosition);
     }
-
-    /*@Override
-    public String toString() {
-
-        Collections.shuffle(answers);
-
-        return answers;
-    }*/
 }
