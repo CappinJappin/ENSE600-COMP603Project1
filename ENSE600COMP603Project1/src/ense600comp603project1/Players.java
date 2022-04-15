@@ -1,7 +1,8 @@
 package ense600comp603project1;
 
 /**
- *
+ *  Scores are stored in here
+ * then transferred to the txt document "Players.txt"
  * @author Keno0
  */
 public class Players {
