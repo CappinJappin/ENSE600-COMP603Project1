@@ -73,31 +73,21 @@ public class ENSE600COMP603Project1 {
                 case 2: questions = questionsHard; break;
                 default: break;
             }
-            
+
             for (int q = 0; q < (questions.size() < MAX_QUESTIONS ? questions.size() : MAX_QUESTIONS); q++) {
                 questionsNumber++;
-                
+
                 //Ask the Question
                 System.out.println("Question " + questionsNumber + ":\n" + questions.get(q).getQuestionText());
-                while (true) {
-                    //announce the Options
-                    System.out.println("A: " + questions.get(q).getAnswer(0)
-                            + " B: " + questions.get(q).getAnswer(1)
-                            + "\nC: " + questions.get(q).getAnswer(2)
-                            + " D: " + questions.get(q).getAnswer(3));
-                        
-                    //User Input (letter A, B, C or D)
-                    char userInputAnswer = sc.next().charAt(0);
 
-                    ASCIIAnswers = (int) (Character.toUpperCase(userInputAnswer));
+                //announce the Options
+                System.out.println("A: " + questions.get(q).getAnswer(0)
+                        + " B: " + questions.get(q).getAnswer(1)
+                        + "\nC: " + questions.get(q).getAnswer(2)
+                        + " D: " + questions.get(q).getAnswer(3));
 
-                    if (ASCIIAnswers >= (int) "A".charAt(0) && ASCIIAnswers <= (int) "D".charAt(0)) {
-                        break;
-                    } else {
-                        System.out.println("Invaild input, please enter a letter:");
-
-                    }
-                }
+                //User Input (letter A, B, C or D)
+                ASCIIAnswers = inputChecker();
 
                 int answerPosition = ASCIIAnswers - (int) "A".charAt(0);
 
@@ -158,5 +148,27 @@ public class ENSE600COMP603Project1 {
         pw.println(newUserName + "@" + newScore);
 
         pw.close();
+    }
+    
+    public static int inputChecker() {
+
+        Scanner sc = new Scanner(System.in);
+        int ASCIIinput;
+
+        while (true) {
+            //User Input (letter A, B, C or D)
+            char userInputAnswer = sc.next().charAt(0);
+
+            ASCIIinput = (int) (Character.toUpperCase(userInputAnswer));
+
+            if (ASCIIinput >= (int) "A".charAt(0) && ASCIIinput <= (int) "D".charAt(0)) {
+                break;
+            } else {
+                System.out.println("Invaild input, please enter a letter:");
+
+            }
+        }
+        
+        return ASCIIinput;
     }
 }
