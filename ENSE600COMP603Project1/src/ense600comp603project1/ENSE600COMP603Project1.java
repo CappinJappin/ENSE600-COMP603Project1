@@ -40,15 +40,16 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  * [] User Interface 
  * [] File I/O 
  * [] Collections
- * [] Threads
+ * [X] Threads
  * [] Software functionality (Easy to Use, no bugs) 
  * [] Software Design (Easy to Understand Code, use comments, OOP) 
  * [] Split Work & Show Each Contribution 
+ * [] clean up the 'throws' (they should only be a part of MusicLoopThread)
  * 
  */
 public class ENSE600COMP603Project1 {
     
-    public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException, InterruptedException {
+    public static void main(String[] args) {
 
         final int MAX_LEVELS = 3; //there are currently 3 levels: easy, medium, hard
         final int MAX_QUESTIONS = 2; //number of questions per level
@@ -73,10 +74,9 @@ public class ENSE600COMP603Project1 {
         
         //Music Prompt
         System.out.println("Enable Music? y/n");
-        //InterruptRunnable i = new InterruptRunnable();
         MusicLoopThread m = new MusicLoopThread("resources/KevinMacleod.wav",10000); //every 10 seconds, loop music
         Thread t = new Thread(m);
-        if(sc.next().toLowerCase().equals("y")) {    
+        if(sc.next().toLowerCase().equals("y")) {    //'y' = play music
             t.start(); //START MUSIC THREAD (must close at end of program)
         }
         
