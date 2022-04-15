@@ -3,20 +3,12 @@ package ense600comp603project1;
 //JAMS COMMIT CODE
 //Jams' Push Upstream Line
 //Extra line to fix weird pull error
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
  *
@@ -61,10 +53,10 @@ public class ENSE600COMP603Project1 {
         int powerUp = 3;
         
         //Question Levels (easy, medium, hard)
-        List<Question> questionsEasy = readQuestions("EasyQuestions");
-        List<Question> questionsMedium = readQuestions("MeduimQuestions");
-        List<Question> questionsHard = readQuestions("HardQuestions");
-        List<Question> questions = null;
+        List<Question> questionsEasy = Question.readQuestions("EasyQuestions");
+        List<Question> questionsMedium = Question.readQuestions("MeduimQuestions");
+        List<Question> questionsHard = Question.readQuestions("HardQuestions");
+        List<Question> questions = null; //A List of Question objects (question difficulty depends on level)
 
         //Intro Text
         System.out.println("Welcome to \"Who Wants To Be A Millionaire\"");
@@ -90,7 +82,9 @@ public class ENSE600COMP603Project1 {
                 default: break;
             }
 
-            for (int q = 0; q < (questions.size() < MAX_QUESTIONS ? questions.size() : MAX_QUESTIONS); q++) {
+            for (int q=0;
+                    q<(questions.size()<MAX_QUESTIONS?questions.size():MAX_QUESTIONS);
+                    q++) {
                 questionsNumber++;
 
                 //Ask the Question
@@ -118,7 +112,7 @@ public class ENSE600COMP603Project1 {
 
                     answerPosition = ASCIIAnswers - (int) "A".charAt(0);
                     userScore = userScore + answerChecker(fiftyFifty.get(answerPosition), questions.get(q).getCorrectAnswer(), ASCIIAnswers);
-                    System.out.println("Your current score is " + userScore + " .\n\n");
+                    System.out.println("Your current score is " + userScore + " .\n");
    
                 } else if (ASCIIAnswers == (int) "P".charAt(0) && powerUp == 0) {
 
@@ -162,31 +156,35 @@ public class ENSE600COMP603Project1 {
         }
 
     }
-
-    public static List<Question> readQuestions(String difficulty) {
-
-        List<Question> questionsList = new ArrayList<Question>();
-
-        try {
-
-            List<String> questionsLine = Files.readAllLines(Paths.get("./resources/" + difficulty + ".txt"));
-
-            for (int i = 0; i < questionsLine.size(); i++) {
-                questionsList.add(new Question(questionsLine.get(i).split("@")));
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        Collections.shuffle(questionsList);
-
-        return questionsList;
-    }
-
+    
+//    /**
+//     * Imports Quiz questions from a file 
+//     * @param difficulty
+//     * @return 
+//     */
+//    public static List<Question> readQuestions(String difficulty) {
+//        List<Question> questionsList = new ArrayList<Question>();
+//        try {
+//            List<String> questionsLine = Files.readAllLines(Paths.get("./resources/" + difficulty + ".txt"));
+//            for (int i = 0; i < questionsLine.size(); i++) {
+//                questionsList.add(new Question(questionsLine.get(i).split("@")));
+//            }
+//        } catch (Exception ex) {
+//            Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        Collections.shuffle(questionsList);
+//        return questionsList;
+//    }
+    
+    /**
+     * Writes a Name and Score to the Scores.txt file
+     * 
+     * @param newUserName
+     * @param newScore
+     * @throws FileNotFoundException 
+     */
     public static void writeFile(String newUserName, int newScore) throws FileNotFoundException {
-
         PrintWriter pw = null;
-        
         try {
             pw = new PrintWriter(new FileWriter("./resources/Players.txt", true));
         } catch (IOException ex) {
