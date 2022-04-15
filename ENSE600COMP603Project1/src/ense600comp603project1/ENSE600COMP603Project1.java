@@ -21,13 +21,13 @@ import java.util.List;
  * @author Keno0
  * 
  * To Do: Ken:
- * [] Fix player scoring to not overwrite names,
+ * [x] Fix player scoring to not overwrite names,
  * [] Simplify loops into more functions.
  * [] Random Math questions
- * [] allow users to quit anytime
+ * [x] allow users to quit anytime
  * [] Have actual questions
  * [] Have 50/50 x3 times
- * [] Fix toString in Questions class
+ * [x] Fix toString in Questions class
  * [] Better CLI (Command Line Interface: in its own class, maybe separate fo input and output),
  * 
  * James:
@@ -163,12 +163,14 @@ public class ENSE600COMP603Project1 {
 
             if (ASCIIinput >= (int) "A".charAt(0) && ASCIIinput <= (int) "D".charAt(0)) {
                 break;
+            } else if (ASCIIinput == (int) "X".charAt(0)){
+                System.exit(0);
             } else {
                 System.out.println("Invaild input, please enter a letter:");
 
             }
         }
-        
+
         return ASCIIinput;
     }
 }
