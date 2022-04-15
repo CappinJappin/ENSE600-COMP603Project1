@@ -15,6 +15,8 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
  *
@@ -46,7 +48,7 @@ import java.util.List;
  */
 public class ENSE600COMP603Project1 {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException, InterruptedException {
 
         final int MAX_LEVELS = 3; //there are currently 3 levels: easy, medium, hard
         final int MAX_QUESTIONS = 1; //number of questions per level
@@ -61,10 +63,22 @@ public class ENSE600COMP603Project1 {
         List<Question> questionsHard = readQuestions("HardQuestions");
         List<Question> questions = null;
 
-        //Intro
+        //Intro Text
         System.out.println("Welcome to \"Who Wants To Be A Millionaire\"");
         System.out.println();
         
+        
+        
+        //Music Prompt
+        System.out.println("Enable Music? y/n");
+        //InterruptRunnable i = new InterruptRunnable();
+        MusicLoopThread m = new MusicLoopThread("resources/KevinMacleod.wav",10000); //every 10 seconds, loop music
+        Thread t = new Thread(m);
+        if(sc.next().toLowerCase().equals("y")) {    
+            t.start(); //START MUSIC THREAD (must close at end of program)
+        }
+        
+        //Questions
         for (int d = 0; d < MAX_LEVELS; d++) {
 
             switch (d) {
@@ -99,6 +113,8 @@ public class ENSE600COMP603Project1 {
                 }
             }
         }
+        
+        t.stop();
         
         //Saving your score
         System.out.println("Input your name");
