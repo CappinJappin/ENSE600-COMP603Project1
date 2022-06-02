@@ -36,8 +36,8 @@ import java.util.logging.Logger;
  */
 public class QuizConsole {
     
-    public static void main(String[] args) {
-
+    //public static void main(String[] args) {
+    public QuizConsole() {
         final int MAX_LEVELS = 3; //there are currently 3 levels: easy, medium, hard
         final int MAX_QUESTIONS = 2; //number of questions per level
         Scanner sc = new Scanner(System.in);

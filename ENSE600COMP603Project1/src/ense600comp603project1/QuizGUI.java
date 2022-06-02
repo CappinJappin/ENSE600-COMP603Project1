@@ -6,6 +6,9 @@ package ense600comp603project1;
  */
 public class QuizGUI {
     public static void main(String[] args) {
-        QuizConsole e = new QuizConsole();
+//        System.out.println("Starting the Old Project1 version...");
+//        QuizConsole app = new QuizConsole();
+//        System.out.println("And done!");
+        
     }
 }
