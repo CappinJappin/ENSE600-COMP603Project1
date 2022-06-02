@@ -68,7 +68,7 @@ public class Question {
                 questionsList.add(new Question(questionsLine.get(i).split("@")));
             }
         } catch (Exception ex) {
-            Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QuizConsole.class.getName()).log(Level.SEVERE, null, ex);
         }
         Collections.shuffle(questionsList);
         return questionsList;

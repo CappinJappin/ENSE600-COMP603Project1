@@ -44,7 +44,7 @@ import java.util.logging.Logger;
  * [] clean up the 'throws' (they should only be a part of MusicLoopThread)
  * 
  */
-public class ENSE600COMP603Project1 {
+public class QuizConsole {
     
     public static void main(String[] args) {
 
@@ -181,7 +181,7 @@ public class ENSE600COMP603Project1 {
         try {
             writeFile(newPlayer.getUserName(), newPlayer.getUserScore());
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QuizConsole.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -199,7 +199,7 @@ public class ENSE600COMP603Project1 {
 //                questionsList.add(new Question(questionsLine.get(i).split("@")));
 //            }
 //        } catch (Exception ex) {
-//            Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(QuizConsole.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //        Collections.shuffle(questionsList);
 //        return questionsList;
@@ -217,7 +217,7 @@ public class ENSE600COMP603Project1 {
         try {
             pw = new PrintWriter(new FileWriter("./resources/Players.txt", true));
         } catch (IOException ex) {
-            Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QuizConsole.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         pw.println(newUserName + "@" + newScore);
@@ -239,15 +239,15 @@ public class ENSE600COMP603Project1 {
                 playerList.put(str[0], Integer.parseInt(str[1]));
             }
         } catch(FileNotFoundException ex){
-            Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QuizConsole.class.getName()).log(Level.SEVERE, null, ex);
         } catch(IOException ex) {
-            Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QuizConsole.class.getName()).log(Level.SEVERE, null, ex);
         } finally{
             if (br != null){
                 try {
                     br.close();
                 } catch (IOException ex) {
-                    Logger.getLogger(ENSE600COMP603Project1.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(QuizConsole.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
