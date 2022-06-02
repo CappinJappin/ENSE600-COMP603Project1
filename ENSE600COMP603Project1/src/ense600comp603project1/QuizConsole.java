@@ -1,19 +1,9 @@
 package ense600comp603project1;
 
-//JAMS COMMIT CODE
-//Jams' Push Upstream Line
-//Extra line to fix weird pull error
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.io.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-
-/**
- * hello
- */
 
 /**
  *
@@ -67,8 +57,6 @@ public class QuizConsole {
         System.out.println("Welcome to \"Who Wants To Be A Millionaire\"");
         System.out.println();
         
-        
-        
         //Music Prompt
         System.out.println("Enable Music? y/n");
         MusicLoopThread m = new MusicLoopThread("resources/KevinMacleod.wav",10000); //every 10 seconds, loop music
@@ -98,8 +86,6 @@ public class QuizConsole {
                 input = sc.nextLine();
             }
         }
-        
-        
         
         //Questions
         for (int d = 0; d < MAX_LEVELS; d++) {
