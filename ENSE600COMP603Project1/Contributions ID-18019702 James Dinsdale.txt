@@ -1,0 +1,13 @@
+James Dinsdale(ID 18019702)'s Contributions to ENSE600-COMP603Project2:
+ - information is in reverse order
+ 
+
+5. moved Main method from QuizConsole class to QuizGUI class
+
+4. created a mockup of the GUI in the resources folder
+
+3. cleaning up excess code in QuizConsole.class (formerly ENSE600COMP603Project1.class)
+
+2. renamed the class "ENSE600COMP603Project1" to "QuizConsole"
+
+1. added MVC (Model View Controller) classes, plus a to-be replacement main method called QuizGUI.java
