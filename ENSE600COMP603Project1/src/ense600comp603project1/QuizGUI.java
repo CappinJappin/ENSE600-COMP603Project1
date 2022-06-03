@@ -14,7 +14,7 @@ public class QuizGUI {
         //System.out.println("And done!");
         EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JFrame frame = new JFrameMenu();
+                JFrame frame = new ViewJFrame();
                 frame.setTitle("Quiz - The Videogame");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setVisible(true);
