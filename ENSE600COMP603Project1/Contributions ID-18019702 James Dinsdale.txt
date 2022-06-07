@@ -2,12 +2,19 @@ James Dinsdale(ID 18019702)'s Contributions to ENSE600-COMP603Project2:
  - information is in reverse order
  
 
-5. moved Main method from QuizConsole class to QuizGUI class
-
-4. created a mockup of the GUI in the resources folder
-
-3. cleaning up excess code in QuizConsole.class (formerly ENSE600COMP603Project1.class)
-
-2. renamed the class "ENSE600COMP603Project1" to "QuizConsole"
-
-1. added MVC (Model View Controller) classes, plus a to-be replacement main method called QuizGUI.java
+1.	added MVC (Model View Controller) classes, plus a to-be replacement main method called QuizGUI.java
+2.	renamed the class "ENSE600COMP603Project1" to "QuizConsole"
+3.	cleaning up excess code in QuizConsole.class (formerly ENSE600COMP603Project1.class)
+4.	created a mockup of the GUI in the resources folder
+5.	moved Main method from QuizConsole class to QuizGUI class
+6.	Added my Contributions document
+7.	Added a GUI Main Menu (no code to control yet)
+8.	 Added GUI for Menu Selecting (no code yet), plus GUI for Question/Answer screen
+9.	QuizGUI is runnable again (had to replace AbsoluteLayout in form editor with Free Layout, as AbsoluteLayout is a Netbeans exclusive thingy that breaks java)
+10.	Copied readQuestions() function from QuizConsole to Question class. Doesn't work yet but if QuizConsole is used in final product, Questions.readQuestions() will need to be coded
+11.	Updated ViewJFrame form with a Settings panel (also redesigned test-screen buttons, redesigned Main Menu
+12.	Coded Test-screen buttons to switch menus (and added MVC Model and View comments to QuizGUI and ViewJFrame, to show understanding of Model, View, Controller)
+13.	Every JPanel is now linked with buttons, except the quiz part which will never end, as it isn't yet connected to JPanel3_FinalResult
+14.	Repaired old QuizConsole class (need for testing) by fully moving readQuestions() to Question class, and bringing back Players class
+15.	added test code for music checkbox
+16.	Completed Music Checkbox Code
