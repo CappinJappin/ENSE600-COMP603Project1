@@ -30,12 +30,6 @@ public class ViewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JPanelScreenTestNav = new javax.swing.JPanel();
-        btn00_Settings = new javax.swing.JButton();
-        btn01_MainMenu = new javax.swing.JButton();
-        btn02_Q = new javax.swing.JButton();
-        btn03_FinalResult = new javax.swing.JButton();
-        btn04_HighScores = new javax.swing.JButton();
         JPanelScreens = new javax.swing.JPanel();
         JPanel0_Settings = new javax.swing.JPanel();
         chkboxEnableMusic = new javax.swing.JCheckBox();
@@ -71,50 +65,6 @@ public class ViewJFrame extends javax.swing.JFrame {
         fieldYourScore = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        JPanelScreenTestNav.setLayout(new java.awt.GridLayout(1, 0));
-
-        btn00_Settings.setText("Settings");
-        btn00_Settings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn00_SettingsActionPerformed(evt);
-            }
-        });
-        JPanelScreenTestNav.add(btn00_Settings);
-
-        btn01_MainMenu.setText("Main Menu");
-        btn01_MainMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn01_MainMenuActionPerformed(evt);
-            }
-        });
-        JPanelScreenTestNav.add(btn01_MainMenu);
-
-        btn02_Q.setText("Question");
-        btn02_Q.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn02_QActionPerformed(evt);
-            }
-        });
-        JPanelScreenTestNav.add(btn02_Q);
-
-        btn03_FinalResult.setText("FinalResult");
-        btn03_FinalResult.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn03_FinalResultActionPerformed(evt);
-            }
-        });
-        JPanelScreenTestNav.add(btn03_FinalResult);
-
-        btn04_HighScores.setText("HighScores");
-        btn04_HighScores.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn04_HighScoresActionPerformed(evt);
-            }
-        });
-        JPanelScreenTestNav.add(btn04_HighScores);
-
-        getContentPane().add(JPanelScreenTestNav, java.awt.BorderLayout.PAGE_START);
 
         JPanelScreens.setLayout(new java.awt.CardLayout());
 
@@ -160,7 +110,7 @@ public class ViewJFrame extends javax.swing.JFrame {
                 .addComponent(comboPickQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
                 .addComponent(btn1_MainMenu)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         JPanelScreens.add(JPanel0_Settings, "card6");
@@ -213,7 +163,7 @@ public class ViewJFrame extends javax.swing.JFrame {
                 .addComponent(btnViewScore)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSettings)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         JPanelScreens.add(JPanel1_MainMenu, "card2");
@@ -373,7 +323,7 @@ public class ViewJFrame extends javax.swing.JFrame {
             .addGroup(JPanel3_FinalResultLayout.createSequentialGroup()
                 .addGap(81, 81, 81)
                 .addComponent(labelResult, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                 .addGroup(JPanel3_FinalResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fieldEnterName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelEnterName)
@@ -432,7 +382,7 @@ public class ViewJFrame extends javax.swing.JFrame {
                 .addComponent(fieldYourScore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(btnLeaveHighscores)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         JPanelScreens.add(JPanel4_HighScores, "card7");
@@ -451,10 +401,6 @@ public class ViewJFrame extends javax.swing.JFrame {
         showPanelPlease(JPanelB_Q_Mini_Answer,JPanelZ_Q_Mini);
     }//GEN-LAST:event_btnOptionAActionPerformed
 
-    private void btn01_MainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn01_MainMenuActionPerformed
-        showPanelPlease(JPanel1_MainMenu,JPanelScreens);
-    }//GEN-LAST:event_btn01_MainMenuActionPerformed
-
     private void btnNextQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextQuestionActionPerformed
         showPanelPlease(JPanel3_FinalResult,JPanelScreens);
     }//GEN-LAST:event_btnNextQuestionActionPerformed
@@ -462,28 +408,20 @@ public class ViewJFrame extends javax.swing.JFrame {
     private void chkboxEnableMusicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkboxEnableMusicActionPerformed
         if(chkboxEnableMusic.isSelected())
         {
-            System.out.println("ACTIVE");
+            //System.out.println("ACTIVE");
+            MusicLoopThread m = new MusicLoopThread("resources/KevinMacleod.wav",10000); //every 10 seconds, loop music
+            Thread musicThread = new Thread(m);
+            //START MUSIC THREAD (must close at end of program)
+            musicThread.start();
+            //When checkbox enabled, disabling the option to turn off music because its funny
+            //(and because implementing a proper option is hard)
+            chkboxEnableMusic.setEnabled(false);
+            chkboxEnableMusic.setToolTipText("\"It's not a bug, it's a feature\" - Albert Einstein");
         } else
         {
-            System.out.println("NAH NOT ACTIVE");
+            //System.out.println("NAH NOT ACTIVE");
         }
     }//GEN-LAST:event_chkboxEnableMusicActionPerformed
-
-    private void btn00_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn00_SettingsActionPerformed
-        showPanelPlease(JPanel0_Settings,JPanelScreens);
-    }//GEN-LAST:event_btn00_SettingsActionPerformed
-
-    private void btn02_QActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn02_QActionPerformed
-        showPanelPlease(JPanel2_Q,JPanelScreens);
-    }//GEN-LAST:event_btn02_QActionPerformed
-
-    private void btn03_FinalResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn03_FinalResultActionPerformed
-        showPanelPlease(JPanel3_FinalResult,JPanelScreens);
-    }//GEN-LAST:event_btn03_FinalResultActionPerformed
-
-    private void btn04_HighScoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn04_HighScoresActionPerformed
-        showPanelPlease(JPanel4_HighScores,JPanelScreens);
-    }//GEN-LAST:event_btn04_HighScoresActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         showPanelPlease(JPanel4_HighScores,JPanelScreens);
@@ -567,14 +505,8 @@ public class ViewJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel4_HighScores;
     private javax.swing.JPanel JPanelA_Q_Mini_Question;
     private javax.swing.JPanel JPanelB_Q_Mini_Answer;
-    private javax.swing.JPanel JPanelScreenTestNav;
     private javax.swing.JPanel JPanelScreens;
     private javax.swing.JPanel JPanelZ_Q_Mini;
-    private javax.swing.JButton btn00_Settings;
-    private javax.swing.JButton btn01_MainMenu;
-    private javax.swing.JButton btn02_Q;
-    private javax.swing.JButton btn03_FinalResult;
-    private javax.swing.JButton btn04_HighScores;
     private javax.swing.JButton btn1_MainMenu;
     private javax.swing.JButton btnLeaveHighscores;
     private javax.swing.JButton btnMakeQuiz;
