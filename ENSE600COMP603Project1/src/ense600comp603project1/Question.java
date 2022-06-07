@@ -61,4 +61,26 @@ public class Question {
 
         return fiftyFifty;
     }
+    
+    
+    //-----------------------------------------
+    //Moved from QuizConsole - NEED TO CONNECT PROPERLY TO QUIZ CONSOLE AGAIN
+    /**
+     * Imports Quiz questions from a file 
+     * @param difficulty
+     * @return 
+     */
+    public static List<Question> readQuestions(String difficulty) {
+        List<Question> questionsList = new ArrayList<Question>();
+        try {
+            List<String> questionsLine = Files.readAllLines(Paths.get("./resources/" + difficulty + ".txt"));
+            for (int i = 0; i < questionsLine.size(); i++) {
+                questionsList.add(new Question(questionsLine.get(i).split("@")));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(QuizConsole.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Collections.shuffle(questionsList);
+        return questionsList;
+    }
 }

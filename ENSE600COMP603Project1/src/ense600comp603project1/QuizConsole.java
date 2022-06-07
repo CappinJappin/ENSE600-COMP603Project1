@@ -172,6 +172,9 @@ public class QuizConsole {
 
     }
     
+    
+    //Hopefully Moved readQuestions() function to Question class
+    //------------------------------------------------
 //    /**
 //     * Imports Quiz questions from a file 
 //     * @param difficulty
