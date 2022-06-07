@@ -443,10 +443,10 @@ public class ViewJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void btnStartQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartQuizActionPerformed
+        showPanelPlease(JPanelA_Q_Mini_Question,JPanelZ_Q_Mini);
         showPanelPlease(JPanel2_Q, JPanelScreens);
     }//GEN-LAST:event_btnStartQuizActionPerformed
 
-    //Question Buttons
     private void btnOptionAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOptionAActionPerformed
         showPanelPlease(JPanelB_Q_Mini_Answer,JPanelZ_Q_Mini);
     }//GEN-LAST:event_btnOptionAActionPerformed
@@ -456,11 +456,17 @@ public class ViewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btn01_MainMenuActionPerformed
 
     private void btnNextQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextQuestionActionPerformed
-        showPanelPlease(JPanelA_Q_Mini_Question,JPanelZ_Q_Mini);
+        showPanelPlease(JPanel3_FinalResult,JPanelScreens);
     }//GEN-LAST:event_btnNextQuestionActionPerformed
 
     private void chkboxEnableMusicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkboxEnableMusicActionPerformed
-        // TODO add your handling code here:
+        if(chkboxEnableMusic.isSelected())
+        {
+            System.out.println("ACTIVE");
+        } else
+        {
+            System.out.println("NAH NOT ACTIVE");
+        }
     }//GEN-LAST:event_chkboxEnableMusicActionPerformed
 
     private void btn00_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn00_SettingsActionPerformed
