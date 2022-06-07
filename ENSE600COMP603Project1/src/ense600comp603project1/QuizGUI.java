@@ -12,16 +12,15 @@ public class QuizGUI {
         //System.out.println("Starting the Old Project1 version...");
         //QuizConsole app = new QuizConsole();
         //System.out.println("And done!");
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                JFrame frame = new ViewJFrame();
-                frame.setTitle("Quiz - The Videogame");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setVisible(true);
+        EventQueue.invokeLater(() -> {
+            //JFrame frame = new ViewJFrame();
+            JFrame frame = new ViewJFrame();
+            frame.setTitle("Quiz - The Videogame");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setVisible(true);
 //                frame.setTitle("RadioButtonTest");
 //               frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //               frame.setVisible(true);
-            }
         });
     }
 }

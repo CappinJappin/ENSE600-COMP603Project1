@@ -1,10 +1,7 @@
 package ense600comp603project1;
 
 public class ViewJFrame extends javax.swing.JFrame {
-
-    /**
-     * Creates new form JamesFrame
-     */
+    
     public ViewJFrame() {
         initComponents();
     }
@@ -26,11 +23,6 @@ public class ViewJFrame extends javax.swing.JFrame {
         btnPanel5 = new javax.swing.JButton();
         btnPanel6 = new javax.swing.JButton();
         JPanelScreens = new javax.swing.JPanel();
-        JPanel1_MainMenu = new javax.swing.JPanel();
-        btnStartQuiz = new javax.swing.JButton();
-        btnMakeQuiz = new javax.swing.JButton();
-        btnViewScore = new javax.swing.JButton();
-        btnSettings = new javax.swing.JButton();
         JPanel2_Q = new javax.swing.JPanel();
         labelQuestion = new javax.swing.JLabel();
         JPanelZ_Q_Mini = new javax.swing.JPanel();
@@ -44,6 +36,11 @@ public class ViewJFrame extends javax.swing.JFrame {
         btnOptionA = new javax.swing.JButton();
         JPanel5_SaveScore = new javax.swing.JPanel();
         JPanel6_Highscores = new javax.swing.JPanel();
+        JPanel1_MainMenu = new javax.swing.JPanel();
+        btnStartQuiz = new javax.swing.JButton();
+        btnMakeQuiz = new javax.swing.JButton();
+        btnViewScore = new javax.swing.JButton();
+        btnSettings = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,33 +73,8 @@ public class ViewJFrame extends javax.swing.JFrame {
 
         JPanelScreens.setLayout(new java.awt.CardLayout());
 
-        JPanel1_MainMenu.setLayout(new javax.swing.BoxLayout(JPanel1_MainMenu, javax.swing.BoxLayout.LINE_AXIS));
-
-        btnStartQuiz.setText("Start Quiz");
-        btnStartQuiz.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStartQuizActionPerformed(evt);
-            }
-        });
-        JPanel1_MainMenu.add(btnStartQuiz);
-
-        btnMakeQuiz.setText("Make a Quiz");
-        btnMakeQuiz.setEnabled(false);
-        JPanel1_MainMenu.add(btnMakeQuiz);
-
-        btnViewScore.setText("View Score");
-        JPanel1_MainMenu.add(btnViewScore);
-
-        btnSettings.setText("Settings");
-        JPanel1_MainMenu.add(btnSettings);
-
-        JPanelScreens.add(JPanel1_MainMenu, "card2");
-
-        JPanel2_Q.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         labelQuestion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelQuestion.setText("Where are you right now?");
-        JPanel2_Q.add(labelQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 500, 60));
 
         JPanelZ_Q_Mini.setLayout(new java.awt.CardLayout());
 
@@ -123,16 +95,11 @@ public class ViewJFrame extends javax.swing.JFrame {
 
         JPanelZ_Q_Mini.add(JPanelB_Q_Mini_Answer, "card4");
 
-        JPanelA_Q_Mini_Question.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         btnOptionB.setText("There");
-        JPanelA_Q_Mini_Question.add(btnOptionB, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 180, 80));
 
         btnOptionC.setText("Somewhere Else");
-        JPanelA_Q_Mini_Question.add(btnOptionC, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 170, 80));
 
         btnOptionD.setText("14th St, Santa Monica, USA");
-        JPanelA_Q_Mini_Question.add(btnOptionD, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 180, 80));
 
         btnOptionA.setText("Here");
         btnOptionA.addActionListener(new java.awt.event.ActionListener() {
@@ -140,11 +107,56 @@ public class ViewJFrame extends javax.swing.JFrame {
                 btnOptionAActionPerformed(evt);
             }
         });
-        JPanelA_Q_Mini_Question.add(btnOptionA, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 170, 80));
+
+        javax.swing.GroupLayout JPanelA_Q_Mini_QuestionLayout = new javax.swing.GroupLayout(JPanelA_Q_Mini_Question);
+        JPanelA_Q_Mini_Question.setLayout(JPanelA_Q_Mini_QuestionLayout);
+        JPanelA_Q_Mini_QuestionLayout.setHorizontalGroup(
+            JPanelA_Q_Mini_QuestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelA_Q_Mini_QuestionLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(JPanelA_Q_Mini_QuestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanelA_Q_Mini_QuestionLayout.createSequentialGroup()
+                        .addComponent(btnOptionA, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(btnOptionB, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JPanelA_Q_Mini_QuestionLayout.createSequentialGroup()
+                        .addComponent(btnOptionC, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(btnOptionD, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        JPanelA_Q_Mini_QuestionLayout.setVerticalGroup(
+            JPanelA_Q_Mini_QuestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelA_Q_Mini_QuestionLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(JPanelA_Q_Mini_QuestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnOptionA, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnOptionB, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(JPanelA_Q_Mini_QuestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnOptionC, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnOptionD, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         JPanelZ_Q_Mini.add(JPanelA_Q_Mini_Question, "card4");
 
-        JPanel2_Q.add(JPanelZ_Q_Mini, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 500, 230));
+        javax.swing.GroupLayout JPanel2_QLayout = new javax.swing.GroupLayout(JPanel2_Q);
+        JPanel2_Q.setLayout(JPanel2_QLayout);
+        JPanel2_QLayout.setHorizontalGroup(
+            JPanel2_QLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanel2_QLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(JPanel2_QLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JPanelZ_Q_Mini, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        JPanel2_QLayout.setVerticalGroup(
+            JPanel2_QLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanel2_QLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(labelQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(JPanelZ_Q_Mini, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         JPanelScreens.add(JPanel2_Q, "card3");
 
@@ -174,15 +186,39 @@ public class ViewJFrame extends javax.swing.JFrame {
 
         JPanelScreens.add(JPanel6_Highscores, "card7");
 
+        JPanel1_MainMenu.setLayout(new javax.swing.BoxLayout(JPanel1_MainMenu, javax.swing.BoxLayout.LINE_AXIS));
+
+        btnStartQuiz.setText("Start Quiz");
+        btnStartQuiz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStartQuizActionPerformed(evt);
+            }
+        });
+        JPanel1_MainMenu.add(btnStartQuiz);
+
+        btnMakeQuiz.setText("Make a Quiz");
+        btnMakeQuiz.setEnabled(false);
+        JPanel1_MainMenu.add(btnMakeQuiz);
+
+        btnViewScore.setText("View Score");
+        JPanel1_MainMenu.add(btnViewScore);
+
+        btnSettings.setText("Settings");
+        JPanel1_MainMenu.add(btnSettings);
+
+        JPanelScreens.add(JPanel1_MainMenu, "card2");
+
         getContentPane().add(JPanelScreens, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //START THE QUIZ
     private void btnStartQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartQuizActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnStartQuizActionPerformed
 
+    //
     private void btnOptionAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOptionAActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnOptionAActionPerformed
