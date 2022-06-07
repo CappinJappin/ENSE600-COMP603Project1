@@ -3,7 +3,8 @@ package ense600comp603project1;
 /**
  *  Scores are stored in here
  * then transferred to the txt document "Players.txt"
- * @author Ken Zheng and James Dinsdale
+ * 
+ * @author Ken Zheng(18026410) and James Dinsdale(18019702)
  */
 public class Players {
 

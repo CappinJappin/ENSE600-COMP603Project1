@@ -7,31 +7,9 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Keno0
+ * @author Ken Zheng(18026410) and James Dinsdale(18019702)
  * 
- * To Do: Ken:
- * [x] Fix player scoring to not overwrite names,
- * [] Simplify loops into more functions.
- * [] Random Math questions
- * [x] allow users to quit anytime
- * [] Have actual questions
- * [] Have 50/50 x3 times
- * [x] Fix toString in Questions class
- * [] Better CLI (Command Line Interface: in its own class, maybe separate fo input and output),
- * 
- * James:
- * [X] Fix Question Count
- * [] add comments.
- * 
- * Assignment Requirements:
- * [] User Interface 
- * [] File I/O 
- * [] Collections
- * [X] Threads
- * [] Software functionality (Easy to Use, no bugs) 
- * [] Software Design (Easy to Understand Code, use comments, OOP) 
- * [] Split Work & Show Each Contribution 
- * [] clean up the 'throws' (they should only be a part of MusicLoopThread)
+ * The Original Main Class, now less used
  * 
  */
 public class QuizConsole {

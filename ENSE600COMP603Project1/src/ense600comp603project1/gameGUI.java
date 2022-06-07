@@ -5,7 +5,10 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
-
+/**
+ * 
+ * @author Ken Zheng(18026410)
+ */
 public class gameGUI {
     
     JList<String> quizNames = new JList<>();

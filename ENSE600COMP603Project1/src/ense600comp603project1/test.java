@@ -14,7 +14,10 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-
+/**
+ * 
+ * @author Ken Zheng(18026410)
+ */
 public class test {
 
     public static void main(String[] args) {

@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 
 /**
  *
- * @author Keno0
+ * @author Ken Zheng(18026410)
  */
 public class newViewJFrame {
 

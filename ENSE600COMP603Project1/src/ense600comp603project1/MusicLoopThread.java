@@ -8,8 +8,10 @@ import java.util.logging.Logger;
 import javax.sound.sampled.*;
 
 /**
- *
- * @author Mr Me
+ * A repeating loop of music, run inside a thread.
+ * This script is pretty self-explanatory
+ * 
+ * @author James Dinsdale(18019702)
  */
 public class MusicLoopThread implements Runnable {
     //Fields

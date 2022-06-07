@@ -2,6 +2,10 @@ package ense600comp603project1;
 
 import javax.swing.JPanel;
 
+/**
+ * 
+ * @author Ken Zheng(18026410) and James Dinsdale(18019702)
+ */
 public class ViewJFrame extends javax.swing.JFrame {
     //MVC View
     

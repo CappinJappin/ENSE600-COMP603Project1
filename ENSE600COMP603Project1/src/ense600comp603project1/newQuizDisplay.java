@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author Keno0
+ * @author Ken Zheng(18026410)
  */
 public class newQuizDisplay {
 

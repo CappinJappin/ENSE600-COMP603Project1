@@ -2,7 +2,7 @@ package ense600comp603project1;
 
 /**
  *
- * @author Keno0
+ * @author Ken Zheng(18026410)
  */
 public class mainGUI {
 
