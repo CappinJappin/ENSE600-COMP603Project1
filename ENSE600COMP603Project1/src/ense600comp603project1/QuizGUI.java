@@ -8,6 +8,8 @@ import javax.swing.JFrame;
  * @author Mr Me
  */
 public class QuizGUI {
+    //MVC Model
+    
     public static void main(String[] args) {
         //System.out.println("Starting the Old Project1 version...");
         //QuizConsole app = new QuizConsole();

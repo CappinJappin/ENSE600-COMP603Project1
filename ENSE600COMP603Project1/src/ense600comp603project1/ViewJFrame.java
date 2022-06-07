@@ -1,6 +1,7 @@
 package ense600comp603project1;
 
 public class ViewJFrame extends javax.swing.JFrame {
+    //MVC View
     
     public ViewJFrame() {
         initComponents();
@@ -16,17 +17,17 @@ public class ViewJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         JPanelScreenTestNav = new javax.swing.JPanel();
-        btn0_Settings = new javax.swing.JButton();
-        btn1_MainMenu = new javax.swing.JButton();
-        btn2_Q = new javax.swing.JButton();
-        btn3_saveScore = new javax.swing.JButton();
-        btn4_highScores = new javax.swing.JButton();
+        btn00_Settings = new javax.swing.JButton();
+        btn01_MainMenu = new javax.swing.JButton();
+        btn02_Q = new javax.swing.JButton();
+        btn03_saveScore = new javax.swing.JButton();
+        btn04_highScores = new javax.swing.JButton();
         JPanelScreens = new javax.swing.JPanel();
         JPanel0_Settings = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        chkboxEnableMusic = new javax.swing.JCheckBox();
+        labelPickQuiz = new javax.swing.JLabel();
+        comboPickQuiz = new javax.swing.JComboBox<>();
+        btn1_MainMenu = new javax.swing.JButton();
         JPanel1_MainMenu = new javax.swing.JPanel();
         btnMakeQuiz = new javax.swing.JButton();
         btnStartQuiz = new javax.swing.JButton();
@@ -43,80 +44,95 @@ public class ViewJFrame extends javax.swing.JFrame {
         JPanelB_Q_Mini_Answer = new javax.swing.JPanel();
         labelAnswer = new javax.swing.JLabel();
         btnNextQuestion = new javax.swing.JButton();
-        TO_DO_JPanel5_SaveScore = new javax.swing.JPanel();
-        TO_DO_JPanel6_Highscores = new javax.swing.JPanel();
+        JPanel3_SaveScore = new javax.swing.JPanel();
+        JPanel4_Highscores = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        JPanelScreenTestNav.setLayout(new java.awt.GridLayout());
+        JPanelScreenTestNav.setLayout(new java.awt.GridLayout(1, 0));
 
-        btn0_Settings.setText("Settings");
-        btn0_Settings.addActionListener(new java.awt.event.ActionListener() {
+        btn00_Settings.setText("Settings");
+        btn00_Settings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn0_SettingsActionPerformed(evt);
+                btn00_SettingsActionPerformed(evt);
             }
         });
-        JPanelScreenTestNav.add(btn0_Settings);
+        JPanelScreenTestNav.add(btn00_Settings);
 
-        btn1_MainMenu.setText("Main Menu");
-        btn1_MainMenu.addActionListener(new java.awt.event.ActionListener() {
+        btn01_MainMenu.setText("Main Menu");
+        btn01_MainMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn1_MainMenuActionPerformed(evt);
+                btn01_MainMenuActionPerformed(evt);
             }
         });
-        JPanelScreenTestNav.add(btn1_MainMenu);
+        JPanelScreenTestNav.add(btn01_MainMenu);
 
-        btn2_Q.setText("Question");
-        JPanelScreenTestNav.add(btn2_Q);
+        btn02_Q.setText("Question");
+        btn02_Q.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn02_QActionPerformed(evt);
+            }
+        });
+        JPanelScreenTestNav.add(btn02_Q);
 
-        btn3_saveScore.setText("Save Score");
-        JPanelScreenTestNav.add(btn3_saveScore);
+        btn03_saveScore.setText("Save Score");
+        btn03_saveScore.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn03_saveScoreActionPerformed(evt);
+            }
+        });
+        JPanelScreenTestNav.add(btn03_saveScore);
 
-        btn4_highScores.setText("Highscores");
-        JPanelScreenTestNav.add(btn4_highScores);
+        btn04_highScores.setText("Highscores");
+        btn04_highScores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn04_highScoresActionPerformed(evt);
+            }
+        });
+        JPanelScreenTestNav.add(btn04_highScores);
 
         getContentPane().add(JPanelScreenTestNav, java.awt.BorderLayout.PAGE_START);
 
         JPanelScreens.setLayout(new java.awt.CardLayout());
 
-        jCheckBox1.setText("Enable Music?");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        chkboxEnableMusic.setText("Enable Music?");
+        chkboxEnableMusic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                chkboxEnableMusicActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Pick a quiz");
+        labelPickQuiz.setText("Pick a quiz");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quiz 1", "Quiz 2" }));
+        comboPickQuiz.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quiz 1", "Quiz 2" }));
 
-        jButton1.setText("Main Menu");
+        btn1_MainMenu.setText("Main Menu");
 
         javax.swing.GroupLayout JPanel0_SettingsLayout = new javax.swing.GroupLayout(JPanel0_Settings);
         JPanel0_Settings.setLayout(JPanel0_SettingsLayout);
         JPanel0_SettingsLayout.setHorizontalGroup(
             JPanel0_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanel0_SettingsLayout.createSequentialGroup()
-                .addGap(197, 197, 197)
+                .addGap(234, 234, 234)
                 .addGroup(JPanel0_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(304, Short.MAX_VALUE))
+                    .addComponent(chkboxEnableMusic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboPickQuiz, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelPickQuiz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn1_MainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
         JPanel0_SettingsLayout.setVerticalGroup(
             JPanel0_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanel0_SettingsLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(jCheckBox1)
+                .addGap(41, 41, 41)
+                .addComponent(chkboxEnableMusic)
                 .addGap(54, 54, 54)
-                .addComponent(jLabel1)
+                .addComponent(labelPickQuiz)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboPickQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
-                .addComponent(jButton1)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addComponent(btn1_MainMenu)
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         JPanelScreens.add(JPanel0_Settings, "card6");
@@ -146,7 +162,7 @@ public class ViewJFrame extends javax.swing.JFrame {
                     .addComponent(btnMakeQuiz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnViewScore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
         JPanel1_MainMenuLayout.setVerticalGroup(
             JPanel1_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +175,7 @@ public class ViewJFrame extends javax.swing.JFrame {
                 .addComponent(btnViewScore)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSettings)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         JPanelScreens.add(JPanel1_MainMenu, "card2");
@@ -251,31 +267,31 @@ public class ViewJFrame extends javax.swing.JFrame {
 
         JPanelScreens.add(JPanel2_Q, "card3");
 
-        javax.swing.GroupLayout TO_DO_JPanel5_SaveScoreLayout = new javax.swing.GroupLayout(TO_DO_JPanel5_SaveScore);
-        TO_DO_JPanel5_SaveScore.setLayout(TO_DO_JPanel5_SaveScoreLayout);
-        TO_DO_JPanel5_SaveScoreLayout.setHorizontalGroup(
-            TO_DO_JPanel5_SaveScoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 602, Short.MAX_VALUE)
+        javax.swing.GroupLayout JPanel3_SaveScoreLayout = new javax.swing.GroupLayout(JPanel3_SaveScore);
+        JPanel3_SaveScore.setLayout(JPanel3_SaveScoreLayout);
+        JPanel3_SaveScoreLayout.setHorizontalGroup(
+            JPanel3_SaveScoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 608, Short.MAX_VALUE)
         );
-        TO_DO_JPanel5_SaveScoreLayout.setVerticalGroup(
-            TO_DO_JPanel5_SaveScoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 371, Short.MAX_VALUE)
-        );
-
-        JPanelScreens.add(TO_DO_JPanel5_SaveScore, "card6");
-
-        javax.swing.GroupLayout TO_DO_JPanel6_HighscoresLayout = new javax.swing.GroupLayout(TO_DO_JPanel6_Highscores);
-        TO_DO_JPanel6_Highscores.setLayout(TO_DO_JPanel6_HighscoresLayout);
-        TO_DO_JPanel6_HighscoresLayout.setHorizontalGroup(
-            TO_DO_JPanel6_HighscoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 602, Short.MAX_VALUE)
-        );
-        TO_DO_JPanel6_HighscoresLayout.setVerticalGroup(
-            TO_DO_JPanel6_HighscoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 371, Short.MAX_VALUE)
+        JPanel3_SaveScoreLayout.setVerticalGroup(
+            JPanel3_SaveScoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 330, Short.MAX_VALUE)
         );
 
-        JPanelScreens.add(TO_DO_JPanel6_Highscores, "card7");
+        JPanelScreens.add(JPanel3_SaveScore, "card6");
+
+        javax.swing.GroupLayout JPanel4_HighscoresLayout = new javax.swing.GroupLayout(JPanel4_Highscores);
+        JPanel4_Highscores.setLayout(JPanel4_HighscoresLayout);
+        JPanel4_HighscoresLayout.setHorizontalGroup(
+            JPanel4_HighscoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 608, Short.MAX_VALUE)
+        );
+        JPanel4_HighscoresLayout.setVerticalGroup(
+            JPanel4_HighscoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 330, Short.MAX_VALUE)
+        );
+
+        JPanelScreens.add(JPanel4_Highscores, "card7");
 
         getContentPane().add(JPanelScreens, java.awt.BorderLayout.CENTER);
 
@@ -292,21 +308,48 @@ public class ViewJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnOptionAActionPerformed
 
-    private void btn1_MainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1_MainMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn1_MainMenuActionPerformed
+    private void btn01_MainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn01_MainMenuActionPerformed
+        JPanelScreens.removeAll();
+        JPanelScreens.add(JPanel1_MainMenu);
+        JPanelScreens.repaint();
+        JPanelScreens.revalidate();
+    }//GEN-LAST:event_btn01_MainMenuActionPerformed
 
     private void btnNextQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextQuestionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNextQuestionActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void chkboxEnableMusicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkboxEnableMusicActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_chkboxEnableMusicActionPerformed
 
-    private void btn0_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0_SettingsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn0_SettingsActionPerformed
+    private void btn00_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn00_SettingsActionPerformed
+        JPanelScreens.removeAll();
+        JPanelScreens.add(JPanel0_Settings);
+        JPanelScreens.repaint();
+        JPanelScreens.revalidate();
+    }//GEN-LAST:event_btn00_SettingsActionPerformed
+
+    private void btn02_QActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn02_QActionPerformed
+        JPanelScreens.removeAll();
+        JPanelScreens.add(JPanel2_Q);
+        JPanelScreens.repaint();
+        JPanelScreens.revalidate();
+    }//GEN-LAST:event_btn02_QActionPerformed
+
+    private void btn03_saveScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn03_saveScoreActionPerformed
+        JPanelScreens.removeAll();
+        JPanelScreens.add(JPanel3_SaveScore);
+        JPanelScreens.repaint();
+        JPanelScreens.revalidate();
+    }//GEN-LAST:event_btn03_saveScoreActionPerformed
+
+    private void btn04_highScoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn04_highScoresActionPerformed
+        JPanelScreens.removeAll();
+        JPanelScreens.add(JPanel4_Highscores);
+        JPanelScreens.repaint();
+        JPanelScreens.revalidate();
+    }//GEN-LAST:event_btn04_highScoresActionPerformed
 
     /**
      * @param args the command line arguments
@@ -350,18 +393,19 @@ public class ViewJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel0_Settings;
     private javax.swing.JPanel JPanel1_MainMenu;
     private javax.swing.JPanel JPanel2_Q;
+    private javax.swing.JPanel JPanel3_SaveScore;
+    private javax.swing.JPanel JPanel4_Highscores;
     private javax.swing.JPanel JPanelA_Q_Mini_Question;
     private javax.swing.JPanel JPanelB_Q_Mini_Answer;
     private javax.swing.JPanel JPanelScreenTestNav;
     private javax.swing.JPanel JPanelScreens;
     private javax.swing.JPanel JPanelZ_Q_Mini;
-    private javax.swing.JPanel TO_DO_JPanel5_SaveScore;
-    private javax.swing.JPanel TO_DO_JPanel6_Highscores;
-    private javax.swing.JButton btn0_Settings;
+    private javax.swing.JButton btn00_Settings;
+    private javax.swing.JButton btn01_MainMenu;
+    private javax.swing.JButton btn02_Q;
+    private javax.swing.JButton btn03_saveScore;
+    private javax.swing.JButton btn04_highScores;
     private javax.swing.JButton btn1_MainMenu;
-    private javax.swing.JButton btn2_Q;
-    private javax.swing.JButton btn3_saveScore;
-    private javax.swing.JButton btn4_highScores;
     private javax.swing.JButton btnMakeQuiz;
     private javax.swing.JButton btnNextQuestion;
     private javax.swing.JButton btnOptionA;
@@ -371,11 +415,10 @@ public class ViewJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSettings;
     private javax.swing.JButton btnStartQuiz;
     private javax.swing.JButton btnViewScore;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JCheckBox chkboxEnableMusic;
+    private javax.swing.JComboBox<String> comboPickQuiz;
     private javax.swing.JLabel labelAnswer;
+    private javax.swing.JLabel labelPickQuiz;
     private javax.swing.JLabel labelQuestion;
     // End of variables declaration//GEN-END:variables
 }
