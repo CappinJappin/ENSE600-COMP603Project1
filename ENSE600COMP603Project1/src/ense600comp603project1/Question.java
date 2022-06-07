@@ -71,13 +71,21 @@ public class Question {
      * @return 
      */
     public static List<Question> readQuestions(String difficulty) {
+        //Create an Arraylist to store all the questions
         List<Question> questionsList = new ArrayList<Question>();
         try {
+            //Read a list of questions from the "resources" folder
             List<String> questionsLine = Files.readAllLines(Paths.get("./resources/" + difficulty + ".txt"));
+            //Read each question, and add it to the ArrayList
             for (int i = 0; i < questionsLine.size(); i++) {
-                questionsList.add(new Question(questionsLine.get(i).split("@")));
+                //Each questions' description, solution and fake answers are split by @
+                //so we can store them in txt files.
+                //Here we decode a question back into a String array ( String[] )
+                String[] line = questionsLine.get(i).split("@");
+                questionsList.add(new Question(line[0],line[1],line[2],line[3],line[4]));
             }
         } catch (Exception ex) {
+            //because we're dealing with files, we need to catch errors
             Logger.getLogger(QuizConsole.class.getName()).log(Level.SEVERE, null, ex);
         }
         Collections.shuffle(questionsList);

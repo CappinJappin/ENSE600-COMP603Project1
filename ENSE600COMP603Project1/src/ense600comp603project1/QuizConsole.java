@@ -126,7 +126,7 @@ public class QuizConsole {
                     ASCIIAnswers = inputChecker(1);
 
                     answerPosition = ASCIIAnswers - (int) "A".charAt(0);
-                    userScore = userScore + answerChecker(fiftyFifty.get(answerPosition), questions.get(q).getCorrectAnswer(), ASCIIAnswers);
+                    userScore = userScore + answerChecker(fiftyFifty.get(answerPosition), questions.get(q).getRightAnswer(), ASCIIAnswers);
                     System.out.println("Your current score is " + userScore + " .\n");
    
                 } else if (ASCIIAnswers == (int) "P".charAt(0) && powerUp == 0) {
@@ -142,13 +142,13 @@ public class QuizConsole {
                     }
 
                     answerPosition = ASCIIAnswers - (int) "A".charAt(0);
-                    userScore = userScore + answerChecker(questions.get(q).getAnswer(answerPosition), questions.get(q).getCorrectAnswer(), ASCIIAnswers);
+                    userScore = userScore + answerChecker(questions.get(q).getAnswer(answerPosition), questions.get(q).getRightAnswer(), ASCIIAnswers);
                     System.out.println("Your current score is " + userScore + " .\n\n");
 
                 } else {
 
                     answerPosition = ASCIIAnswers - (int) "A".charAt(0);
-                    userScore = userScore + answerChecker(questions.get(q).getAnswer(answerPosition), questions.get(q).getCorrectAnswer(), ASCIIAnswers);
+                    userScore = userScore + answerChecker(questions.get(q).getAnswer(answerPosition), questions.get(q).getRightAnswer(), ASCIIAnswers);
                     System.out.println("Your current score is " + userScore + " .\n\n");
                 }
             }
